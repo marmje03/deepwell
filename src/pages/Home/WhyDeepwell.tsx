@@ -23,7 +23,7 @@ export default function WhyDeepwell() {
   return (
     <section style={{
       backgroundColor: 'var(--color-cold-blue)',
-      padding: '8rem 2rem',
+      padding: '5rem 2rem',
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{
@@ -113,7 +113,7 @@ export default function WhyDeepwell() {
               alt='Deepwell lifestyle'
               style={{
                 width: '100%',
-                height: '600px',
+                height: '450px',
                 objectFit: 'cover',
                 borderRadius: '4px',
               }}
