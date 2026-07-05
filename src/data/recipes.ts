@@ -10,6 +10,18 @@ import hazelnutLatteImg from '../assets/images/hazelnut latte.png'
 import icedShakenCoffeeImg from '../assets/images/iced shaken coffee.png'
 import coconutIcedCoffeeImg from '../assets/images/coconut iced coffee.png'
 import orangeColdBrewImg from '../assets/images/orange cold brew.png'
+import vanillaColdFoamLatteImg from '../assets/images/vanilla cold foam latte.png'
+import honeyVanillaLatteImg from '../assets/images/honey vanilla latte.png'
+import mintMochaImg from '../assets/images/mint mocha.png'
+import mochaFrappeImg from '../assets/images/mocha frappe.png'
+import toastedMarshmallowMochaImg from '../assets/images/toasted marshmellow mocha.png'
+import saltedCaramelLatteImg from '../assets/images/salted caramel latte.png'
+import caramelCreamColdBrewImg from '../assets/images/caramel cream cold brew.png'
+import brownSugarCaramelLatteImg from '../assets/images/brown sugar caramel latte.png'
+import coconutMochaImg from '../assets/images/coconut mocha.png'
+import coconutVanillaLatteImg from '../assets/images/coconut vanilla latte.png'
+import hazelnutCreamLatteImg from '../assets/images/hazelnut cream latte.png'
+import hazelnutMochaImg from '../assets/images/hazelnut mocha.png'
 
 export type Flavour = 'Original' | 'Vanilla' | 'Mocha' | 'Caramel' | 'Hazelnut' | 'Coconut'
 export type RecipeCategory = 'everyday' | 'sweet' | 'refreshing'
@@ -204,6 +216,185 @@ export const recipes: Recipe[] = [
       'Pour in the Deepwell concentrate.',
       'Add the orange juice and cold water.',
       'Garnish with an orange slice.',
+    ],
+  },
+  {
+    slug: 'vanilla-cold-foam-latte',
+    title: 'Vanilla Cold Foam Latte',
+    category: 'sweet',
+    image: vanillaColdFoamLatteImg,
+    flavourBase: 'Vanilla',
+    description: 'Deepwell Vanilla topped with a light, airy layer of cold foam.',
+    ingredients: ['60ml Deepwell Vanilla', '150ml milk', '50ml cold foam', 'Ice'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Vanilla concentrate.',
+      'Add the milk.',
+      'Top with cold foam.',
+    ],
+  },
+  {
+    slug: 'honey-vanilla-latte',
+    title: 'Honey Vanilla Latte',
+    category: 'sweet',
+    image: honeyVanillaLatteImg,
+    flavourBase: 'Vanilla',
+    description: 'A touch of honey sweetens this cold, creamy Deepwell Vanilla latte.',
+    ingredients: ['60ml Deepwell Vanilla', '180ml milk', '1 tsp honey', 'Ice'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Vanilla concentrate.',
+      'Add the milk.',
+      'Stir in the honey.',
+    ],
+  },
+  {
+    slug: 'mint-mocha',
+    title: 'Mint Mocha',
+    category: 'refreshing',
+    image: mintMochaImg,
+    flavourBase: 'Mocha',
+    description: 'Fresh mint and chocolate shavings brighten up a rich Deepwell Mocha.',
+    ingredients: ['60ml Deepwell Mocha', '180ml milk', 'Ice', 'Fresh mint leaves', 'Chocolate shavings'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Mocha concentrate.',
+      'Add the milk.',
+      'Garnish with fresh mint and chocolate shavings.',
+    ],
+  },
+  {
+    slug: 'mocha-frappe',
+    title: 'Mocha Frappé',
+    category: 'sweet',
+    image: mochaFrappeImg,
+    flavourBase: 'Mocha',
+    description: 'Blended cold and topped with cream — a dessert-style Deepwell Mocha treat.',
+    ingredients: ['60ml Deepwell Mocha', '180ml milk', '1 cup ice', 'Whipped cream (optional)', 'Chocolate shavings'],
+    steps: [
+      'Blend the Deepwell Mocha concentrate, milk and ice until smooth.',
+      'Pour into a glass.',
+      'Top with whipped cream and chocolate shavings.',
+    ],
+  },
+  {
+    slug: 'toasted-marshmallow-mocha',
+    title: 'Toasted Marshmallow Mocha',
+    category: 'sweet',
+    image: toastedMarshmallowMochaImg,
+    flavourBase: 'Mocha',
+    description: 'Toasted marshmallows melt into a rich, chocolatey Deepwell Mocha.',
+    ingredients: ['60ml Deepwell Mocha', '180ml milk', 'Ice', 'Toasted marshmallows'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Mocha concentrate.',
+      'Add the milk.',
+      'Top with toasted marshmallows.',
+    ],
+  },
+  {
+    slug: 'salted-caramel-latte',
+    title: 'Salted Caramel Latte',
+    category: 'sweet',
+    image: saltedCaramelLatteImg,
+    flavourBase: 'Caramel',
+    description: 'Caramel sauce and a pinch of sea salt make this Deepwell Caramel latte irresistible.',
+    ingredients: ['60ml Deepwell Caramel', '180ml milk', 'Ice', 'Caramel sauce', 'Pinch of sea salt'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Caramel concentrate.',
+      'Add the milk.',
+      'Finish with caramel sauce and a pinch of sea salt.',
+    ],
+  },
+  {
+    slug: 'caramel-cream-cold-brew',
+    title: 'Caramel Cream Cold Brew',
+    category: 'sweet',
+    image: caramelCreamColdBrewImg,
+    flavourBase: 'Caramel',
+    description: 'Cold foam and a caramel drizzle crown this smooth Deepwell Caramel cold brew.',
+    ingredients: ['60ml Deepwell Caramel', '120ml cold water', 'Ice', '50ml cold foam', 'Caramel drizzle'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Caramel concentrate.',
+      'Add the cold water.',
+      'Top with cold foam and caramel drizzle.',
+    ],
+  },
+  {
+    slug: 'brown-sugar-caramel-latte',
+    title: 'Brown Sugar Caramel Latte',
+    category: 'sweet',
+    image: brownSugarCaramelLatteImg,
+    flavourBase: 'Caramel',
+    description: 'Brown sugar deepens the warmth of Deepwell Caramel in this cold latte.',
+    ingredients: ['60ml Deepwell Caramel', '180ml milk', 'Ice', '1 tsp brown sugar'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Caramel concentrate.',
+      'Add the milk.',
+      'Stir in the brown sugar.',
+    ],
+  },
+  {
+    slug: 'coconut-mocha',
+    title: 'Coconut Mocha',
+    category: 'sweet',
+    image: coconutMochaImg,
+    flavourBase: 'Coconut',
+    description: 'Chocolate milk and Deepwell Coconut come together for a rich, tropical twist.',
+    ingredients: ['60ml Deepwell Coconut', '180ml chocolate milk', 'Ice', 'Chocolate shavings'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Coconut concentrate.',
+      'Add the chocolate milk.',
+      'Finish with chocolate shavings.',
+    ],
+  },
+  {
+    slug: 'coconut-vanilla-latte',
+    title: 'Coconut Vanilla Latte',
+    category: 'refreshing',
+    image: coconutVanillaLatteImg,
+    flavourBase: 'Coconut',
+    description: 'A splash of vanilla syrup rounds out this light, tropical Deepwell Coconut latte.',
+    ingredients: ['60ml Deepwell Coconut', '180ml milk', 'Ice', 'Splash of vanilla syrup'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Coconut concentrate.',
+      'Add the milk.',
+      'Finish with a splash of vanilla syrup.',
+    ],
+  },
+  {
+    slug: 'hazelnut-cream-latte',
+    title: 'Hazelnut Cream Latte',
+    category: 'sweet',
+    image: hazelnutCreamLatteImg,
+    flavourBase: 'Hazelnut',
+    description: 'Cold foam and crushed hazelnuts top off this creamy Deepwell Hazelnut latte.',
+    ingredients: ['60ml Deepwell Hazelnut', '180ml milk', 'Ice', '50ml cold foam', 'Crushed hazelnuts'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Hazelnut concentrate.',
+      'Add the milk.',
+      'Top with cold foam and crushed hazelnuts.',
+    ],
+  },
+  {
+    slug: 'hazelnut-mocha',
+    title: 'Hazelnut Mocha',
+    category: 'sweet',
+    image: hazelnutMochaImg,
+    flavourBase: 'Hazelnut',
+    description: 'Chocolate milk and Deepwell Hazelnut combine for a nutty, chocolatey sip.',
+    ingredients: ['60ml Deepwell Hazelnut', '180ml chocolate milk', 'Ice', 'Chocolate shavings'],
+    steps: [
+      'Fill a glass with ice.',
+      'Pour in the Deepwell Hazelnut concentrate.',
+      'Add the chocolate milk.',
+      'Finish with chocolate shavings.',
     ],
   },
 ]

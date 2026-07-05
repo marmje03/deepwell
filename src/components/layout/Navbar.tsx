@@ -1,14 +1,28 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Navbar() {
   const { t, i18n } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [visible, setVisible] = useState(true)
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'no' : 'en')
   }
+
+  useEffect(() => {
+    let prevScrollY = window.scrollY
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      setVisible(currentScrollY < prevScrollY)
+      prevScrollY = currentScrollY
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <nav style={{
@@ -22,6 +36,8 @@ export default function Navbar() {
       alignItems: 'center',
       justifyContent: 'space-between',
       backgroundColor: 'transparent',
+      transform: visible ? 'translateY(0)' : 'translateY(-100%)',
+      transition: 'transform 0.3s ease',
     }}>
       <Link to='/' style={{
         fontFamily: 'var(--font-heading)',

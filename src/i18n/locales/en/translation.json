@@ -78,53 +78,68 @@
     "notFound": "Article not found."
   },
   "brewLab": {
-    "eyebrow": "Brew Lab",
-    "title": "Build your perfect cup.",
-    "resultLabel": "Your creation",
-    "descriptionSentence": "A {{strengthDescriptor}} pour with {{liquid}} and a hint of {{flavour}}.",
-    "steps": {
-      "flavour": "Flavour",
-      "liquid": "Liquid",
-      "ice": "Ice",
-      "strength": "Strength"
+    "eyebrow": "Find Your Flavour",
+    "progressLabel": "{{current}} / {{total}}",
+    "recipesHeading": "Recipes made with Deepwell {{flavour}}",
+    "questions": {
+      "q1": {
+        "text": "What's your perfect morning?",
+        "options": {
+          "slow": "Slow and quiet",
+          "work": "Straight into work",
+          "workout": "A workout first",
+          "changes": "It changes every day"
+        }
+      },
+      "q2": {
+        "text": "Pick your coffee mood.",
+        "options": {
+          "calm": "Calm and focused",
+          "bold": "Bold and energised",
+          "sweet": "Sweet and indulgent",
+          "adventurous": "Something adventurous"
+        }
+      },
+      "q3": {
+        "text": "How do you take your coffee?",
+        "options": {
+          "black": "Black, no fuss",
+          "oat": "Creamy and smooth",
+          "sweet": "Extra sweet",
+          "ice": "Over lots of ice"
+        }
+      },
+      "q4": {
+        "text": "Your ideal afternoon is...",
+        "options": {
+          "reading": "Reading alone",
+          "work": "Deep work session",
+          "friends": "Catching up with friends",
+          "outdoors": "Being outdoors"
+        }
+      },
+      "q5": {
+        "text": "Pick a treat.",
+        "options": {
+          "cinnamon": "Cinnamon bun",
+          "brownie": "Brownie",
+          "croissant": "Croissant",
+          "cheesecake": "Cheesecake"
+        }
+      }
     },
-    "flavour": {
-      "original": "Original",
-      "vanilla": "Vanilla",
-      "mocha": "Mocha",
-      "caramel": "Caramel"
-    },
-    "liquid": {
-      "water": "Water",
-      "oatMilk": "Oat Milk",
-      "wholeMilk": "Whole Milk",
-      "almondMilk": "Almond Milk"
-    },
-    "liquidAdjective": {
-      "water": "",
-      "oatMilk": "Oat",
-      "wholeMilk": "Creamy",
-      "almondMilk": "Almond"
-    },
-    "ice": {
-      "none": "No Ice",
-      "little": "A Little",
-      "lots": "Lots of Ice"
-    },
-    "strength": {
-      "mild": "Mild (1:3)",
-      "classic": "Classic (1:2)",
-      "strong": "Strong (1:1)"
-    },
-    "strengthName": {
-      "mild": "Mild",
-      "classic": "Classic",
-      "strong": "Strong"
-    },
-    "strengthDescriptor": {
-      "mild": "light and smooth",
-      "classic": "smooth, balanced",
-      "strong": "bold and intense"
+    "result": {
+      "label": "Your flavour is",
+      "viewRecipes": "View Recipes",
+      "shopNow": "Shop Now",
+      "flavours": {
+        "original": { "name": "Original", "description": "Smooth, balanced, and endlessly reliable — just like your daily rhythm." },
+        "vanilla": { "name": "Vanilla", "description": "Soft, sweet, and quietly versatile — a gentle constant in your day." },
+        "caramel": { "name": "Caramel", "description": "Warm, indulgent, and made for sharing good moments." },
+        "mocha": { "name": "Mocha", "description": "Bold, rich, and always ready to power through." },
+        "hazelnut": { "name": "Hazelnut", "description": "Nutty, curious, and a little unexpected — just like you." },
+        "coconut": { "name": "Coconut", "description": "Light, breezy, and at home wherever the day takes you." }
+      }
     }
   }
 }
