@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { articles as journalArticles } from '../../data/journal'
 
-const articles = [
-  { key: 'post1', slug: 'cold-brew-vs-iced-coffee' },
-  { key: 'post2', slug: 'perfect-summer-coffee' },
-  { key: 'post3', slug: 'coffee-origins' },
-]
+const articles = journalArticles.slice(0, 3).map((article, i) => ({
+  key: `post${i + 1}`,
+  slug: article.slug,
+}))
 
 export default function JournalPreview() {
   const { t } = useTranslation()

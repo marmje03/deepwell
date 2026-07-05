@@ -61,5 +61,12 @@
     "steps": "Steps",
     "backToRecipes": "Back to recipes",
     "notFound": "Recipe not found."
+  },
+  "journal": {
+    "eyebrow": "Journal",
+    "title": "From the well.",
+    "featuredLabel": "Featured",
+    "backToJournal": "Back to journal",
+    "notFound": "Article not found."
   }
 }

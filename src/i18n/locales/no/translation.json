@@ -61,5 +61,12 @@
     "steps": "Fremgangsmåte",
     "backToRecipes": "Tilbake til oppskrifter",
     "notFound": "Fant ikke oppskriften."
+  },
+  "journal": {
+    "eyebrow": "Journal",
+    "title": "Fra brønnen.",
+    "featuredLabel": "I fokus",
+    "backToJournal": "Tilbake til journal",
+    "notFound": "Fant ikke artikkelen."
   }
 }
