@@ -87,96 +87,108 @@ export default function BrewGuide() {
             <svg
               width='280'
               height='380'
-              viewBox='0 0 200 300'
+              viewBox='0 0 200 280'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
-              style={{ margin: '0 auto' }}
+              style={{ margin: '0 auto', display: 'block' }}
             >
-              {/* Glass outline */}
+              {/* Håndtegnet glass - myke kurver */}
               <path
-                d='M30 20 L170 20 L150 280 L50 280 Z'
-                fill='none'
-                stroke='rgba(107, 42, 26, 0.3)'
-                strokeWidth='2'
+                d='M45 15 C44 15 43 15 42 16 L28 260 C27 262 29 268 32 268 L168 268 C171 268 173 262 172 260 L158 16 C157 15 156 15 155 15 Z'
+                fill='rgba(245, 233, 220, 0.4)'
+                stroke='rgba(107, 42, 26, 0.5)'
+                strokeWidth='2.5'
+                strokeLinecap='round'
+                strokeLinejoin='round'
               />
 
               {/* Liquid layers */}
               <clipPath id='glassClip'>
-                <path d='M30 20 L170 20 L150 280 L50 280 Z' />
+                <path d='M45 15 L28 260 L172 260 L155 15 Z' />
               </clipPath>
 
               <g clipPath='url(#glassClip)'>
                 {filledLayers.map((layer, i) => {
-                  const layerHeight = 260 / steps.length
-                  const y = 280 - (i + 1) * layerHeight
+                  const layerHeight = 245 / steps.length
+                  const y = 260 - (i + 1) * layerHeight
                   return (
                     <motion.rect
                       key={i}
                       x='0'
                       y={y}
                       width='200'
-                      height={layerHeight}
+                      height={layerHeight + 2}
                       fill={layer.color}
-                      initial={{ scaleY: 0, originY: 1 }}
+                      initial={{ scaleY: 0 }}
                       animate={{ scaleY: 1 }}
-                      transition={{ duration: 0.5, ease: 'easeOut' }}
+                      style={{ transformOrigin: 'bottom' }}
+                      transition={{ duration: 0.6, ease: 'easeOut' }}
                     />
                   )
                 })}
 
-                {/* Ice cubes when step 0 active */}
+                {/* Is-biter */}
                 {activeStep >= 0 && (
                   <>
-                    <motion.rect
-                      x='60' y='220' width='25' height='25'
-                      rx='3'
+                    <motion.path
+                      d='M65 228 C64 226 66 222 70 223 C74 222 76 226 74 229 C73 232 68 232 65 228 Z'
+                      fill='rgba(255,255,255,0.7)'
+                      stroke='rgba(255,255,255,0.4)'
+                      strokeWidth='1'
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                    <motion.path
+                      d='M100 235 C99 232 102 228 106 229 C110 228 111 233 109 236 C107 239 101 238 100 235 Z'
                       fill='rgba(255,255,255,0.6)'
+                      stroke='rgba(255,255,255,0.3)'
+                      strokeWidth='1'
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.4, delay: 0.1 }}
                     />
-                    <motion.rect
-                      x='100' y='230' width='20' height='20'
-                      rx='3'
+                    <motion.path
+                      d='M128 225 C127 222 130 219 134 220 C138 219 139 224 137 227 C135 230 129 229 128 225 Z'
                       fill='rgba(255,255,255,0.5)'
+                      stroke='rgba(255,255,255,0.3)'
+                      strokeWidth='1'
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.1 }}
-                    />
-                    <motion.rect
-                      x='130' y='215' width='22' height='22'
-                      rx='3'
-                      fill='rgba(255,255,255,0.4)'
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
                     />
                   </>
                 )}
               </g>
 
-              {/* Glass shine */}
-              <line
-                x1='50' y1='30'
-                x2='45' y2='270'
-                stroke='rgba(255,255,255,0.4)'
-                strokeWidth='4'
+              {/* Glassskinn - håndtegnet linje */}
+              <path
+                d='M55 25 C53 80 51 160 50 255'
+                stroke='rgba(255,255,255,0.5)'
+                strokeWidth='3'
                 strokeLinecap='round'
               />
 
-              {/* Straw when done */}
+              {/* Sugerør når ferdig */}
               {activeStep === 3 && (
-                <motion.line
-                  x1='130' y1='10'
-                  x2='120' y2='280'
-                  stroke='rgba(107, 42, 26, 0.6)'
-                  strokeWidth='5'
+                <motion.path
+                  d='M135 5 C134 50 132 150 130 265'
+                  stroke='rgba(107, 42, 26, 0.7)'
+                  strokeWidth='4'
                   strokeLinecap='round'
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.6 }}
                 />
               )}
+
+              {/* Håndtegnet bunn-linje */}
+              <path
+                d='M28 262 C80 270 120 270 172 262'
+                stroke='rgba(107, 42, 26, 0.3)'
+                strokeWidth='1.5'
+                strokeLinecap='round'
+              />
             </svg>
 
             <p style={{
