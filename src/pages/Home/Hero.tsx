@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import heroImg from '../../assets/images/Hero.jpg'
-import brandBg from '../../assets/images/Deepwell-3.png'
 
 export default function Hero() {
   const { t } = useTranslation()
@@ -11,7 +10,7 @@ export default function Hero() {
     <section style={{
       minHeight: '100vh',
       backgroundColor: 'var(--color-cold-blue)',
-      backgroundImage: `url(${brandBg})`,
+      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900' viewBox='0 0 1440 900'%3E%3Cg fill='none' stroke='rgba(107,42,26,0.08)' stroke-width='1'%3E%3Cpath d='M-200 200 C200 150 400 300 800 200 S1200 100 1700 200'/%3E%3Cpath d='M-200 250 C200 200 400 350 800 250 S1200 150 1700 250'/%3E%3Cpath d='M-200 300 C200 250 400 400 800 300 S1200 200 1700 300'/%3E%3Cpath d='M-200 350 C200 300 400 450 800 350 S1200 250 1700 350'/%3E%3Cpath d='M-200 400 C200 350 400 500 800 400 S1200 300 1700 400'/%3E%3Cpath d='M-200 450 C200 400 400 550 800 450 S1200 350 1700 450'/%3E%3Cpath d='M-200 500 C200 450 400 600 800 500 S1200 400 1700 500'/%3E%3Cpath d='M-200 550 C200 500 400 650 800 550 S1200 450 1700 550'/%3E%3Cpath d='M-200 600 C200 550 400 700 800 600 S1200 500 1700 600'/%3E%3Cpath d='M-200 650 C200 600 400 750 800 650 S1200 550 1700 650'/%3E%3C/g%3E%3C/svg%3E")`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
