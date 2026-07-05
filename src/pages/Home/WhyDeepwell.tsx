@@ -61,7 +61,7 @@ export default function WhyDeepwell() {
               </h2>
             </motion.div>
 
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               {reasons.map((r, i) => (
                 <motion.div
                   key={r.number}
@@ -71,7 +71,7 @@ export default function WhyDeepwell() {
                   viewport={{ once: true }}
                   style={{
                     borderTop: '1px solid rgba(107, 42, 26, 0.2)',
-                    padding: '1.5rem 0',
+                    padding: '1.5rem 0 0',
                   }}
                 >
                   <p style={{
