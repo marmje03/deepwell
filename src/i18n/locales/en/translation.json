@@ -3,7 +3,7 @@
     "home": "Home",
     "shop": "Shop",
     "recipes": "Recipes",
-    "brewLab": "Brew Lab",
+    "brewLab": "Your Coffee Match",
     "journal": "Journal",
     "account": "Account"
   },
@@ -12,7 +12,7 @@
     "title": "Depth in every drop.",
     "description": "Premium cold brew concentrate, crafted for those who take their coffee seriously. Just add water.",
     "shopNow": "Shop Now",
-    "brewLab": "Brew Lab"
+    "brewLab": "Your Coffee Match"
   },
   "flavours": {
     "eyebrow": "The Collection",
@@ -52,7 +52,7 @@
     "shopHeading": "Shop",
     "exploreHeading": "Explore",
     "contactHeading": "Contact",
-    "email": "hello@deepwell.co",
+    "email": "hello@deepwell.com",
     "copyright": "© 2025 Deepwell. All rights reserved.",
     "credit": "A concept brand by Reden Studio."
   },

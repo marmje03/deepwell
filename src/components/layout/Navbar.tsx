@@ -51,6 +51,7 @@ export default function Navbar() {
 
       <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
         {[
+          { to: '/', label: t('nav.home') },
           { to: '/recipes', label: t('nav.recipes') },
           { to: '/brew-lab', label: t('nav.brewLab') },
           { to: '/journal', label: t('nav.journal') },

@@ -3,7 +3,7 @@
     "home": "Hjem",
     "shop": "Butikk",
     "recipes": "Oppskrifter",
-    "brewLab": "Brew Lab",
+    "brewLab": "Din Kaffematch",
     "journal": "Journal",
     "account": "Konto"
   },
@@ -12,7 +12,7 @@
     "title": "Dybde i hver dråpe.",
     "description": "Cold brew-konsentrat av høy kvalitet, laget for deg som tar kaffen din på alvor. Bare tilsett vann.",
     "shopNow": "Handle nå",
-    "brewLab": "Brew Lab"
+    "brewLab": "Din Kaffematch"
   },
   "flavours": {
     "eyebrow": "Kolleksjonen",
@@ -52,7 +52,7 @@
     "shopHeading": "Butikk",
     "exploreHeading": "Utforsk",
     "contactHeading": "Kontakt",
-    "email": "hello@deepwell.co",
+    "email": "hello@deepwell.com",
     "copyright": "© 2025 Deepwell. Alle rettigheter forbeholdt.",
     "credit": "Et konseptmerke av Reden Studio."
   },
