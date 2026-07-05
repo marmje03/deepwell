@@ -1,10 +1,19 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useState, useEffect } from 'react'
 import { products } from '../../data/products'
+import Toast from '../../components/ui/Toast'
 
 export default function ShopPage() {
   const { t } = useTranslation()
+  const [toastVisible, setToastVisible] = useState(false)
+
+  useEffect(() => {
+    if (!toastVisible) return
+    const timer = setTimeout(() => setToastVisible(false), 3000)
+    return () => clearTimeout(timer)
+  }, [toastVisible])
 
   return (
     <main style={{
@@ -119,6 +128,7 @@ export default function ShopPage() {
                 <div style={{ padding: '1.5rem' }}>
                   <button
                     type="button"
+                    onClick={() => setToastVisible(true)}
                     style={{
                       width: '100%',
                       fontFamily: 'var(--font-body)',
@@ -140,6 +150,8 @@ export default function ShopPage() {
           ))}
         </div>
       </div>
+
+      <Toast message={t('shop.conceptNotice')} visible={toastVisible} />
     </main>
   )
 }

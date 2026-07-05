@@ -148,6 +148,7 @@
     "addToCart": "Legg i handlekurv",
     "backToShop": "Tilbake til butikk",
     "price": "kr 99",
-    "soldOut": "Utsolgt"
+    "soldOut": "Utsolgt",
+    "conceptNotice": "Dette er en konceptbutikk — ingen kjøp er ekte."
   }
 }

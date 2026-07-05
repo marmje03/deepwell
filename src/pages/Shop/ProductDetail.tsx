@@ -1,12 +1,21 @@
 import { motion } from 'framer-motion'
 import { Link, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useState, useEffect } from 'react'
 import { products } from '../../data/products'
+import Toast from '../../components/ui/Toast'
 
 export default function ProductDetail() {
   const { slug } = useParams()
   const { t } = useTranslation()
   const product = products.find(p => p.slug === slug)
+  const [toastVisible, setToastVisible] = useState(false)
+
+  useEffect(() => {
+    if (!toastVisible) return
+    const timer = setTimeout(() => setToastVisible(false), 3000)
+    return () => clearTimeout(timer)
+  }, [toastVisible])
 
   if (!product) {
     return (
@@ -133,6 +142,7 @@ export default function ProductDetail() {
 
             <button
               type="button"
+              onClick={() => setToastVisible(true)}
               style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: '0.8rem',
@@ -150,6 +160,8 @@ export default function ProductDetail() {
           </div>
         </motion.div>
       </div>
+
+      <Toast message={t('shop.conceptNotice')} visible={toastVisible} />
     </main>
   )
 }

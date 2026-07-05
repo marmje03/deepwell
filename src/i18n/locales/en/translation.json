@@ -148,6 +148,7 @@
     "addToCart": "Add to Cart",
     "backToShop": "Back to shop",
     "price": "kr 99",
-    "soldOut": "Sold Out"
+    "soldOut": "Sold Out",
+    "conceptNotice": "This is a concept store — no purchases are real."
   }
 }
