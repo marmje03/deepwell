@@ -107,7 +107,7 @@ export default function WhyDeepwell() {
             </div>
           </div>
 
-          <div>
+          <div style={{ paddingTop: '2.5rem' }}>
             <img
               src={lifestyleImg}
               alt='Deepwell lifestyle'
