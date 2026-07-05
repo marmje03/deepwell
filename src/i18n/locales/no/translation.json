@@ -20,7 +20,9 @@
     "original": { "name": "Original", "tagline": "Myk & Balansert" },
     "vanilla": { "name": "Vanilje", "tagline": "Myk & Søt" },
     "mocha": { "name": "Mocha", "tagline": "Rik & Sjokoladeaktig" },
-    "caramel": { "name": "Karamell", "tagline": "Varm & Myk" }
+    "caramel": { "name": "Karamell", "tagline": "Varm & Myk" },
+    "coconut": { "name": "Kokos", "tagline": "Tropisk & Myk" },
+    "hazelnut": { "name": "Hasselnøtt", "tagline": "Nøtteaktig & Rik" }
   },
   "whyDeepwell": {
     "eyebrow": "Hvorfor Deepwell",

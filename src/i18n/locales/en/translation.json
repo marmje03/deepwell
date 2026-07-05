@@ -20,7 +20,9 @@
     "original": { "name": "Original", "tagline": "Smooth & Balanced" },
     "vanilla": { "name": "Vanilla", "tagline": "Soft & Sweet" },
     "mocha": { "name": "Mocha", "tagline": "Rich & Chocolatey" },
-    "caramel": { "name": "Caramel", "tagline": "Warm & Smooth" }
+    "caramel": { "name": "Caramel", "tagline": "Warm & Smooth" },
+    "coconut": { "name": "Coconut", "tagline": "Tropical & Smooth" },
+    "hazelnut": { "name": "Hazelnut", "tagline": "Nutty & Rich" }
   },
   "whyDeepwell": {
     "eyebrow": "Why Deepwell",

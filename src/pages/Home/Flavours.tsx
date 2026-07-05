@@ -5,12 +5,16 @@ import originalImg from '../../assets/images/original.png'
 import vanillaImg from '../../assets/images/vanilla.png'
 import mochaImg from '../../assets/images/mocha.png'
 import caramelImg from '../../assets/images/caramel.png'
+import coconutImg from '../../assets/images/coconut.png'
+import hazelnutImg from '../../assets/images/hazelnut.png'
 
 const flavours = [
   { key: 'original', img: originalImg, bg: 'var(--color-cold-blue)' },
   { key: 'vanilla', img: vanillaImg, bg: '#e4cfb9' },
   { key: 'mocha', img: mochaImg, bg: 'var(--color-rose-latte)' },
   { key: 'caramel', img: caramelImg, bg: 'var(--color-caramel-foam)' },
+  { key: 'hazelnut', img: hazelnutImg, bg: '#c1c0b3' },
+  { key: 'coconut', img: coconutImg, bg: '#e4cfb9' },
 ]
 
 export default function Flavours() {
@@ -54,7 +58,7 @@ export default function Flavours() {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateColumns: 'repeat(3, 1fr)',
         gap: '1.5rem',
       }}>
         {flavours.map((f, i) => (
