@@ -1,1 +1,32 @@
 @import 'tailwindcss';
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --color-deep-roast: #6B2A1A;
+  --color-rose-latte: #E2AEA1;
+  --color-caramel-foam: #FBD3B4;
+  --color-cold-blue: #CBD5F7;
+  --color-oat-cream: #F5E9DC;
+  --color-white: #FFFFFF;
+  --color-dark: #1A1A1A;
+
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  color: var(--color-dark);
+  background-color: var(--color-oat-cream);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
