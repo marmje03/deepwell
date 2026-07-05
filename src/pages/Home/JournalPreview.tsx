@@ -1,31 +1,16 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const articles = [
-  {
-    category: 'Brew Tips',
-    title: 'Cold Brew vs Iced Coffee',
-    excerpt: 'They look the same in the glass. But the process — and the result — could not be more different.',
-    date: 'June 2025',
-    slug: 'cold-brew-vs-iced-coffee',
-  },
-  {
-    category: 'Behind the Brand',
-    title: 'The Perfect Summer Coffee',
-    excerpt: 'What makes a coffee feel like summer? We break down the elements of the perfect warm-weather cup.',
-    date: 'May 2025',
-    slug: 'perfect-summer-coffee',
-  },
-  {
-    category: 'Origins',
-    title: 'Where Coffee Comes From',
-    excerpt: 'From Ethiopian highlands to your glass — a journey through the origins of the world\'s favourite drink.',
-    date: 'April 2025',
-    slug: 'coffee-origins',
-  },
+  { key: 'post1', slug: 'cold-brew-vs-iced-coffee' },
+  { key: 'post2', slug: 'perfect-summer-coffee' },
+  { key: 'post3', slug: 'coffee-origins' },
 ]
 
 export default function JournalPreview() {
+  const { t } = useTranslation()
+
   return (
     <section style={{
       backgroundColor: 'var(--color-cold-blue)',
@@ -54,7 +39,7 @@ export default function JournalPreview() {
               opacity: 0.6,
               marginBottom: '1rem',
             }}>
-              Journal
+              {t('journalPreview.eyebrow')}
             </p>
             <h2 style={{
               fontFamily: 'var(--font-heading)',
@@ -62,7 +47,7 @@ export default function JournalPreview() {
               color: 'var(--color-deep-roast)',
               letterSpacing: '0.05em',
             }}>
-              From the well.
+              {t('journalPreview.title')}
             </h2>
           </div>
 
@@ -77,7 +62,7 @@ export default function JournalPreview() {
             paddingBottom: '2px',
             opacity: 0.7,
           }}>
-            All articles →
+            {t('journalPreview.allArticles')}
           </Link>
         </motion.div>
 
@@ -114,7 +99,7 @@ export default function JournalPreview() {
                     opacity: 0.5,
                     marginBottom: '1rem',
                   }}>
-                    {article.category}
+                    {t(`journalPreview.${article.key}.category`)}
                   </p>
                   <h3 style={{
                     fontFamily: 'var(--font-heading)',
@@ -124,7 +109,7 @@ export default function JournalPreview() {
                     marginBottom: '1rem',
                     lineHeight: 1.4,
                   }}>
-                    {article.title}
+                    {t(`journalPreview.${article.key}.title`)}
                   </h3>
                   <p style={{
                     fontFamily: 'var(--font-body)',
@@ -134,7 +119,7 @@ export default function JournalPreview() {
                     lineHeight: 1.8,
                     marginBottom: '1.5rem',
                   }}>
-                    {article.excerpt}
+                    {t(`journalPreview.${article.key}.excerpt`)}
                   </p>
                   <p style={{
                     fontFamily: 'var(--font-body)',
@@ -143,7 +128,7 @@ export default function JournalPreview() {
                     opacity: 0.4,
                     letterSpacing: '0.1em',
                   }}>
-                    {article.date}
+                    {t(`journalPreview.${article.key}.date`)}
                   </p>
                 </div>
               </Link>

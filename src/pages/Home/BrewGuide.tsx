@@ -1,39 +1,17 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const steps = [
-  {
-    number: '01',
-    title: 'Fill your glass',
-    body: 'Add ice to a glass — the more the better for a perfectly cold brew.',
-    color: 'rgba(203, 213, 247, 0.8)',
-    label: 'Ice',
-  },
-  {
-    number: '02',
-    title: 'Pour the concentrate',
-    body: 'Add 1 part Deepwell concentrate. A standard serving is about 60ml.',
-    color: 'rgba(107, 42, 26, 0.85)',
-    label: 'Concentrate',
-  },
-  {
-    number: '03',
-    title: 'Add your liquid',
-    body: 'Top with 2 parts water, oat milk, whole milk, or almond — your choice.',
-    color: 'rgba(210, 190, 165, 0.9)',
-    label: 'Milk / Water',
-  },
-  {
-    number: '04',
-    title: 'Enjoy',
-    body: 'Stir gently and enjoy. No equipment, no waiting, no compromise.',
-    color: 'rgba(107, 42, 26, 0.4)',
-    label: 'Ready',
-  },
+  { key: 'step1', color: 'rgba(203, 213, 247, 0.8)', label: 'Ice' },
+  { key: 'step2', color: 'rgba(107, 42, 26, 0.85)', label: 'Concentrate' },
+  { key: 'step3', color: 'rgba(210, 190, 165, 0.9)', label: 'Milk / Water' },
+  { key: 'step4', color: 'rgba(107, 42, 26, 0.4)', label: 'Ready' },
 ]
 
 export default function BrewGuide() {
   const [activeStep, setActiveStep] = useState(-1)
+  const { t } = useTranslation()
 
   return (
     <section style={{
@@ -57,7 +35,7 @@ export default function BrewGuide() {
             opacity: 0.6,
             marginBottom: '1rem',
           }}>
-            Brew Guide
+            {t('brewGuide.eyebrow')}
           </p>
           <h2 style={{
             fontFamily: 'var(--font-heading)',
@@ -65,7 +43,7 @@ export default function BrewGuide() {
             color: 'var(--color-deep-roast)',
             letterSpacing: '0.05em',
           }}>
-            Perfect iced coffee.<br />Every time.
+            {t('brewGuide.title')}
           </h2>
         </motion.div>
 
@@ -219,7 +197,7 @@ export default function BrewGuide() {
                 textAlign: 'center',
                 transition: 'opacity 0.3s ease',
               }}>
-                {activeStep >= 0 ? steps[activeStep].label : 'Hover a step'}
+                {activeStep >= 0 ? steps[activeStep].label : t('brewGuide.hoverPrompt', 'Hover a step')}
               </p>
             </div>
           </div>
@@ -228,7 +206,7 @@ export default function BrewGuide() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {steps.map((step, i) => (
               <motion.div
-                key={step.number}
+                key={step.key}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
@@ -250,7 +228,7 @@ export default function BrewGuide() {
                   letterSpacing: '0.2em',
                   marginBottom: '0.75rem',
                 }}>
-                  {step.number}
+                  {t(`brewGuide.${step.key}.number`)}
                 </p>
                 <h3 style={{
                   fontFamily: 'var(--font-heading)',
@@ -259,7 +237,7 @@ export default function BrewGuide() {
                   letterSpacing: '0.05em',
                   marginBottom: '0.5rem',
                 }}>
-                  {step.title}
+                  {t(`brewGuide.${step.key}.title`)}
                 </h3>
                 <p style={{
                   fontFamily: 'var(--font-body)',
@@ -268,7 +246,7 @@ export default function BrewGuide() {
                   opacity: 0.7,
                   lineHeight: 1.8,
                 }}>
-                  {step.body}
+                  {t(`brewGuide.${step.key}.description`)}
                 </p>
               </motion.div>
             ))}

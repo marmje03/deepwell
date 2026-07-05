@@ -6,5 +6,52 @@
     "brewLab": "Brew Lab",
     "journal": "Journal",
     "account": "Konto"
+  },
+  "hero": {
+    "eyebrow": "Cold Brew Konsentrat",
+    "title": "Dybde i hver dråpe.",
+    "description": "Cold brew-konsentrat av høy kvalitet, laget for deg som tar kaffen din på alvor. Bare tilsett vann.",
+    "shopNow": "Handle nå",
+    "brewLab": "Brew Lab"
+  },
+  "flavours": {
+    "eyebrow": "Kolleksjonen",
+    "title": "Fire smaker.<br />Én standard.",
+    "original": { "name": "Original", "tagline": "Myk & Balansert" },
+    "vanilla": { "name": "Vanilje", "tagline": "Myk & Søt" },
+    "mocha": { "name": "Mocha", "tagline": "Rik & Sjokoladeaktig" },
+    "caramel": { "name": "Karamell", "tagline": "Varm & Myk" }
+  },
+  "whyDeepwell": {
+    "eyebrow": "Hvorfor Deepwell",
+    "title": "Kaffe som respekterer tiden din.",
+    "point1": { "number": "01", "title": "Enkelt av design", "description": "Ingen utstyr. Ingen gjetting. Bland med vann, melk eller havre — kaffe akkurat slik du liker den, hver gang." },
+    "point2": { "number": "02", "title": "Ukompromittert kvalitet", "description": "Cold-brewet sakte i 20 timer. Hver batch er myk, aldri bitter, aldri forhastet." },
+    "point3": { "number": "03", "title": "Laget for rutinen din", "description": "Fire smaker, ett format. Drikk den svart, med havremelk, på is, eller blendet — Deepwell passer rutinen din." }
+  },
+  "brewGuide": {
+    "eyebrow": "Brew Guide",
+    "title": "Perfekt iskaffe. Hver gang.",
+    "step1": { "number": "01", "title": "Fyll glasset", "description": "Ha is i et glass — jo mer, jo bedre for en perfekt kald brew." },
+    "step2": { "number": "02", "title": "Hell i konsentratet", "description": "Tilsett 1 del Deepwell-konsentrat. En standardporsjon er omtrent 60ml." },
+    "step3": { "number": "03", "title": "Tilsett væske", "description": "Topp med 2 deler vann, havremelk, helmelk, eller mandelmelk — ditt valg." },
+    "step4": { "number": "04", "title": "Nyt", "description": "Rør forsiktig og nyt. Ingen utstyr, ingen venting, ingen kompromisser." }
+  },
+  "journalPreview": {
+    "eyebrow": "Journal",
+    "title": "Fra brønnen.",
+    "allArticles": "Alle artikler →",
+    "post1": { "category": "Brewtips", "title": "Cold Brew vs Iskaffe", "excerpt": "De ser like ut i glasset. Men prosessen — og resultatet — kunne ikke vært mer forskjellig.", "date": "Juni 2025" },
+    "post2": { "category": "Bak merkevaren", "title": "Den perfekte sommerkaffen", "excerpt": "Hva gjør at en kaffe føles som sommer? Vi bryter ned elementene i den perfekte varmværskoppen.", "date": "Mai 2025" },
+    "post3": { "category": "Opprinnelse", "title": "Hvor kaffen kommer fra", "excerpt": "Fra etiopiske høyland til glasset ditt — en reise gjennom verdens mest elskede drikks opprinnelse.", "date": "April 2025" }
+  },
+  "footer": {
+    "brandDescription": "Cold brew-konsentrat av høy kvalitet. Laget for deg som tar kaffen din på alvor.",
+    "shopHeading": "Butikk",
+    "exploreHeading": "Utforsk",
+    "contactHeading": "Kontakt",
+    "email": "hello@deepwell.co",
+    "copyright": "© 2025 Deepwell. Alle rettigheter forbeholdt.",
+    "credit": "Et konseptmerke av Reden Studio."
   }
 }

@@ -1,18 +1,21 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import originalImg from '../../assets/images/original.png'
 import vanillaImg from '../../assets/images/vanilla.png'
 import mochaImg from '../../assets/images/mocha.png'
 import caramelImg from '../../assets/images/caramel.png'
 
 const flavours = [
-  { name: 'Original', tagline: 'Smooth & Balanced', img: originalImg, bg: 'var(--color-cold-blue)' },
-  { name: 'Vanilla', tagline: 'Soft & Sweet', img: vanillaImg, bg: '#e4cfb9' },
-  { name: 'Mocha', tagline: 'Rich & Chocolatey', img: mochaImg, bg: 'var(--color-rose-latte)' },
-  { name: 'Caramel', tagline: 'Warm & Smooth', img: caramelImg, bg: 'var(--color-caramel-foam)' },
+  { key: 'original', img: originalImg, bg: 'var(--color-cold-blue)' },
+  { key: 'vanilla', img: vanillaImg, bg: '#e4cfb9' },
+  { key: 'mocha', img: mochaImg, bg: 'var(--color-rose-latte)' },
+  { key: 'caramel', img: caramelImg, bg: 'var(--color-caramel-foam)' },
 ]
 
 export default function Flavours() {
+  const { t } = useTranslation()
+
   return (
     <section style={{
       padding: '8rem 2rem',
@@ -36,16 +39,17 @@ export default function Flavours() {
           opacity: 0.6,
           marginBottom: '1rem',
         }}>
-          The Collection
+          {t('flavours.eyebrow')}
         </p>
-        <h2 style={{
-          fontFamily: 'var(--font-heading)',
-          fontSize: 'clamp(2rem, 4vw, 3rem)',
-          color: 'var(--color-deep-roast)',
-          letterSpacing: '0.05em',
-        }}>
-          Four Flavours.<br />One Standard.
-        </h2>
+        <h2
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(2rem, 4vw, 3rem)',
+            color: 'var(--color-deep-roast)',
+            letterSpacing: '0.05em',
+          }}
+          dangerouslySetInnerHTML={{ __html: t('flavours.title') }}
+        />
       </motion.div>
 
       <div style={{
@@ -55,7 +59,7 @@ export default function Flavours() {
       }}>
         {flavours.map((f, i) => (
           <motion.div
-            key={f.name}
+            key={f.key}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
@@ -77,7 +81,7 @@ export default function Flavours() {
               >
                 <img
                   src={f.img}
-                  alt={f.name}
+                  alt={t(`flavours.${f.key}.name`)}
                   style={{
                     width: '100%',
                     maxWidth: '160px',
@@ -94,7 +98,7 @@ export default function Flavours() {
                   marginBottom: '0.5rem',
                   textTransform: 'uppercase',
                 }}>
-                  {f.name}
+                  {t(`flavours.${f.key}.name`)}
                 </p>
                 <p style={{
                   fontFamily: 'var(--font-body)',
@@ -103,7 +107,7 @@ export default function Flavours() {
                   opacity: 0.6,
                   letterSpacing: '0.05em',
                 }}>
-                  {f.tagline}
+                  {t(`flavours.${f.key}.tagline`)}
                 </p>
               </div>
             </Link>

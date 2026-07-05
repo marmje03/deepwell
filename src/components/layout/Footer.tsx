@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export default function Footer() {
+  const { t } = useTranslation()
+
   return (
     <footer style={{
       backgroundColor: 'var(--color-deep-roast)',
@@ -34,7 +37,7 @@ export default function Footer() {
               lineHeight: 1.8,
               maxWidth: '280px',
             }}>
-              Premium cold brew concentrate. Crafted for those who take their coffee seriously.
+              {t('footer.brandDescription')}
             </p>
           </div>
 
@@ -48,10 +51,10 @@ export default function Footer() {
               opacity: 0.5,
               marginBottom: '1.5rem',
             }}>
-              Shop
+              {t('footer.shopHeading')}
             </p>
-            {['Original', 'Vanilla', 'Mocha', 'Caramel'].map(item => (
-              <Link key={item} to='/shop' style={{
+            {['original', 'vanilla', 'mocha', 'caramel'].map(key => (
+              <Link key={key} to='/shop' style={{
                 display: 'block',
                 fontFamily: 'var(--font-body)',
                 fontSize: '0.85rem',
@@ -64,7 +67,7 @@ export default function Footer() {
               onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
               onMouseLeave={e => (e.currentTarget.style.opacity = '0.6')}
               >
-                {item}
+                {t(`flavours.${key}.name`)}
               </Link>
             ))}
           </div>
@@ -79,14 +82,14 @@ export default function Footer() {
               opacity: 0.5,
               marginBottom: '1.5rem',
             }}>
-              Explore
+              {t('footer.exploreHeading')}
             </p>
             {[
-              { label: 'Brew Lab', to: '/brew-lab' },
-              { label: 'Recipes', to: '/recipes' },
-              { label: 'Journal', to: '/journal' },
+              { key: 'brewLab', to: '/brew-lab' },
+              { key: 'recipes', to: '/recipes' },
+              { key: 'journal', to: '/journal' },
             ].map(item => (
-              <Link key={item.label} to={item.to} style={{
+              <Link key={item.key} to={item.to} style={{
                 display: 'block',
                 fontFamily: 'var(--font-body)',
                 fontSize: '0.85rem',
@@ -99,7 +102,7 @@ export default function Footer() {
               onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
               onMouseLeave={e => (e.currentTarget.style.opacity = '0.6')}
               >
-                {item.label}
+                {t(`nav.${item.key}`)}
               </Link>
             ))}
           </div>
@@ -114,7 +117,7 @@ export default function Footer() {
               opacity: 0.5,
               marginBottom: '1.5rem',
             }}>
-              Contact
+              {t('footer.contactHeading')}
             </p>
             <p style={{
               fontFamily: 'var(--font-body)',
@@ -122,7 +125,7 @@ export default function Footer() {
               opacity: 0.6,
               lineHeight: 1.8,
             }}>
-              hello@deepwell.co
+              {t('footer.email')}
             </p>
           </div>
         </div>
@@ -140,14 +143,14 @@ export default function Footer() {
             fontSize: '0.75rem',
             opacity: 0.4,
           }}>
-            © 2025 Deepwell. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <p style={{
             fontFamily: 'var(--font-body)',
             fontSize: '0.75rem',
             opacity: 0.4,
           }}>
-            A concept brand by Reden Studio.
+            {t('footer.credit')}
           </p>
         </div>
       </div>

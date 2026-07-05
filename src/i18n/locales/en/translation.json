@@ -6,5 +6,52 @@
     "brewLab": "Brew Lab",
     "journal": "Journal",
     "account": "Account"
+  },
+  "hero": {
+    "eyebrow": "Cold Brew Concentrate",
+    "title": "Depth in every drop.",
+    "description": "Premium cold brew concentrate, crafted for those who take their coffee seriously. Just add water.",
+    "shopNow": "Shop Now",
+    "brewLab": "Brew Lab"
+  },
+  "flavours": {
+    "eyebrow": "The Collection",
+    "title": "Four Flavours.<br />One Standard.",
+    "original": { "name": "Original", "tagline": "Smooth & Balanced" },
+    "vanilla": { "name": "Vanilla", "tagline": "Soft & Sweet" },
+    "mocha": { "name": "Mocha", "tagline": "Rich & Chocolatey" },
+    "caramel": { "name": "Caramel", "tagline": "Warm & Smooth" }
+  },
+  "whyDeepwell": {
+    "eyebrow": "Why Deepwell",
+    "title": "Coffee that respects your time.",
+    "point1": { "number": "01", "title": "Simple by design", "description": "No equipment. No guesswork. Mix with water, milk, or oat — coffee exactly how you like it, every time." },
+    "point2": { "number": "02", "title": "Uncompromising quality", "description": "Cold-brewed slowly for 20 hours. Every batch is smooth, never bitter, never rushed." },
+    "point3": { "number": "03", "title": "Made for your routine", "description": "Four flavours, one format. Take it black, with oat milk, over ice, or blended — Deepwell fits your routine." }
+  },
+  "brewGuide": {
+    "eyebrow": "Brew Guide",
+    "title": "Perfect iced coffee. Every time.",
+    "step1": { "number": "01", "title": "Fill your glass", "description": "Add ice to a glass — the more the better for a perfectly cold brew." },
+    "step2": { "number": "02", "title": "Pour the concentrate", "description": "Add 1 part Deepwell concentrate. A standard serving is about 60ml." },
+    "step3": { "number": "03", "title": "Add your liquid", "description": "Top with 2 parts water, oat milk, whole milk, or almond — your choice." },
+    "step4": { "number": "04", "title": "Enjoy", "description": "Stir gently and enjoy. No equipment, no waiting, no compromise." }
+  },
+  "journalPreview": {
+    "eyebrow": "Journal",
+    "title": "From the well.",
+    "allArticles": "All articles →",
+    "post1": { "category": "Brew Tips", "title": "Cold Brew vs Iced Coffee", "excerpt": "They look the same in the glass. But the process — and the result — could not be more different.", "date": "June 2025" },
+    "post2": { "category": "Behind the Brand", "title": "The Perfect Summer Coffee", "excerpt": "What makes a coffee feel like summer? We break down the elements of the perfect warm-weather cup.", "date": "May 2025" },
+    "post3": { "category": "Origins", "title": "Where Coffee Comes From", "excerpt": "From Ethiopian highlands to your glass — a journey through the origins of the world's favourite drink.", "date": "April 2025" }
+  },
+  "footer": {
+    "brandDescription": "Premium cold brew concentrate. Crafted for those who take their coffee seriously.",
+    "shopHeading": "Shop",
+    "exploreHeading": "Explore",
+    "contactHeading": "Contact",
+    "email": "hello@deepwell.co",
+    "copyright": "© 2025 Deepwell. All rights reserved.",
+    "credit": "A concept brand by Reden Studio."
   }
 }

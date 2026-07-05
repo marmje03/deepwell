@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import heroImg from '../../assets/images/Hero.jpg'
 import bgImg from '../../assets/images/deepwell background.png'
 
 export default function Hero() {
+  const { t } = useTranslation()
+
   return (
     <section style={{
       minHeight: '100vh',
@@ -40,7 +43,7 @@ export default function Hero() {
             marginBottom: '1.5rem',
             opacity: 0.7,
           }}>
-            Cold Brew Concentrate
+            {t('hero.eyebrow')}
           </p>
           <h1 style={{
             fontFamily: 'var(--font-heading)',
@@ -50,7 +53,7 @@ export default function Hero() {
             marginBottom: '2rem',
             letterSpacing: '0.05em',
           }}>
-            Depth in<br />every drop.
+            {t('hero.title')}
           </h1>
           <p style={{
             fontFamily: 'var(--font-body)',
@@ -61,7 +64,7 @@ export default function Hero() {
             marginBottom: '3rem',
             maxWidth: '400px',
           }}>
-            Premium cold brew concentrate, crafted for those who take their coffee seriously. Just add water.
+            {t('hero.description')}
           </p>
           <div style={{ display: 'flex', gap: '1rem' }}>
             <Link to='/shop' style={{
@@ -75,7 +78,7 @@ export default function Hero() {
               textDecoration: 'none',
               display: 'inline-block',
             }}>
-              Shop Now
+              {t('hero.shopNow')}
             </Link>
             <Link to='/brew-lab' style={{
               fontFamily: 'var(--font-body)',
@@ -88,7 +91,7 @@ export default function Hero() {
               textDecoration: 'none',
               display: 'inline-block',
             }}>
-              Brew Lab
+              {t('hero.brewLab')}
             </Link>
           </div>
         </motion.div>

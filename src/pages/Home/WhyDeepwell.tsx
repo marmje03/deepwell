@@ -1,25 +1,16 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import lifestyleImg from '../../assets/images/lifestyle.png'
 
 const reasons = [
-  {
-    number: '01',
-    title: 'Simple by design',
-    body: 'No equipment. No guesswork. Mix with water, milk, or oat — coffee exactly how you like it, every time.',
-  },
-  {
-    number: '02',
-    title: 'Uncompromising quality',
-    body: 'Cold-brewed slowly for 20 hours. Every batch is smooth, never bitter, never rushed.',
-  },
-  {
-    number: '03',
-    title: 'Made for your routine',
-    body: 'Four flavours, one format. Take it black, with oat milk, over ice, or blended — Deepwell fits your routine.',
-  },
+  { key: 'point1' },
+  { key: 'point2' },
+  { key: 'point3' },
 ]
 
 export default function WhyDeepwell() {
+  const { t } = useTranslation()
+
   return (
     <section style={{
       backgroundColor: 'var(--color-cold-blue)',
@@ -49,7 +40,7 @@ export default function WhyDeepwell() {
                 opacity: 0.6,
                 marginBottom: '1rem',
               }}>
-                Why Deepwell
+                {t('whyDeepwell.eyebrow')}
               </p>
               <h2 style={{
                 fontFamily: 'var(--font-heading)',
@@ -57,14 +48,14 @@ export default function WhyDeepwell() {
                 color: 'var(--color-deep-roast)',
                 letterSpacing: '0.05em',
               }}>
-                Coffee that respects your time.
+                {t('whyDeepwell.title')}
               </h2>
             </motion.div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               {reasons.map((r, i) => (
                 <motion.div
-                  key={r.number}
+                  key={r.key}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.15 }}
@@ -82,7 +73,7 @@ export default function WhyDeepwell() {
                     letterSpacing: '0.2em',
                     marginBottom: '1.5rem',
                   }}>
-                    {r.number}
+                    {t(`whyDeepwell.${r.key}.number`)}
                   </p>
                   <h3 style={{
                     fontFamily: 'var(--font-heading)',
@@ -91,7 +82,7 @@ export default function WhyDeepwell() {
                     letterSpacing: '0.05em',
                     marginBottom: '1rem',
                   }}>
-                    {r.title}
+                    {t(`whyDeepwell.${r.key}.title`)}
                   </h3>
                   <p style={{
                     fontFamily: 'var(--font-body)',
@@ -100,7 +91,7 @@ export default function WhyDeepwell() {
                     opacity: 0.7,
                     lineHeight: 1.8,
                   }}>
-                    {r.body}
+                    {t(`whyDeepwell.${r.key}.description`)}
                   </p>
                 </motion.div>
               ))}
