@@ -85,29 +85,29 @@ export default function BrewGuide() {
             justifyContent: 'center',
           }}>
             <svg
-              width='220'
-              height='340'
-              viewBox='0 0 220 340'
+              width='200'
+              height='320'
+              viewBox='0 0 200 320'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
               style={{ margin: '0 auto', display: 'block' }}
             >
               {/* Clip path for liquid */}
               <clipPath id='glassClip'>
-                <path d='M48 80 L42 290 Q42 298 110 300 Q178 298 178 290 L172 80 Z' />
+                <path d='M55 30 Q50 31 48 35 L38 270 Q38 278 100 280 Q162 278 162 270 L152 35 Q150 31 145 30 Z' />
               </clipPath>
 
               {/* Liquid layers */}
               <g clipPath='url(#glassClip)'>
                 {filledLayers.map((layer, i) => {
-                  const layerHeight = 220 / steps.length
-                  const y = 300 - (i + 1) * layerHeight
+                  const layerHeight = 250 / steps.length
+                  const y = 280 - (i + 1) * layerHeight
                   return (
                     <motion.rect
                       key={i}
-                      x='35'
+                      x='30'
                       y={y}
-                      width='150'
+                      width='140'
                       height={layerHeight + 2}
                       fill={layer.color}
                       initial={{ scaleY: 0 }}
@@ -121,95 +121,64 @@ export default function BrewGuide() {
                 {/* Ice cubes */}
                 {activeStep >= 0 && (
                   <>
-                    <motion.rect x='55' y='250' width='26' height='26' rx='5'
-                      fill='rgba(255,255,255,0.7)' stroke='rgba(255,255,255,0.4)' strokeWidth='1.5'
-                      initial={{ opacity: 0, y: 270 }} animate={{ opacity: 1, y: 250 }}
-                      transition={{ duration: 0.5 }}
+                    <motion.rect x='55' y='235' width='22' height='22' rx='4'
+                      fill='rgba(255,255,255,0.65)' stroke='rgba(255,255,255,0.3)' strokeWidth='1'
+                      initial={{ opacity: 0, y: 220 }} animate={{ opacity: 1, y: 235 }}
+                      transition={{ duration: 0.4 }}
                     />
-                    <motion.rect x='95' y='262' width='22' height='22' rx='4'
-                      fill='rgba(255,255,255,0.6)' stroke='rgba(255,255,255,0.3)' strokeWidth='1.5'
-                      initial={{ opacity: 0, y: 282 }} animate={{ opacity: 1, y: 262 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
+                    <motion.rect x='90' y='248' width='18' height='18' rx='3'
+                      fill='rgba(255,255,255,0.55)' stroke='rgba(255,255,255,0.2)' strokeWidth='1'
+                      initial={{ opacity: 0, y: 230 }} animate={{ opacity: 1, y: 248 }}
+                      transition={{ duration: 0.4, delay: 0.1 }}
                     />
-                    <motion.rect x='130' y='252' width='24' height='24' rx='5'
-                      fill='rgba(255,255,255,0.55)' stroke='rgba(255,255,255,0.3)' strokeWidth='1.5'
-                      initial={{ opacity: 0, y: 272 }} animate={{ opacity: 1, y: 252 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
+                    <motion.rect x='118' y='238' width='20' height='20' rx='4'
+                      fill='rgba(255,255,255,0.5)' stroke='rgba(255,255,255,0.2)' strokeWidth='1'
+                      initial={{ opacity: 0, y: 222 }} animate={{ opacity: 1, y: 238 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
                     />
                   </>
                 )}
               </g>
 
-              {/* Cup body */}
+              {/* Glass outline — elegant rounded */}
               <path
-                d='M48 80 L42 290 Q42 300 110 302 Q178 300 178 290 L172 80 Z'
-                fill='rgba(245, 233, 220, 0.5)'
-                stroke='rgba(107, 42, 26, 0.3)'
+                d='M55 30 Q50 31 48 35 L38 270 Q38 280 100 282 Q162 280 162 270 L152 35 Q150 31 145 30 Z'
+                fill='none'
+                stroke='rgba(107, 42, 26, 0.35)'
                 strokeWidth='2'
                 strokeLinecap='round'
                 strokeLinejoin='round'
               />
 
-              {/* Lid base */}
+              {/* Glass rim */}
               <path
-                d='M44 80 Q110 72 176 80'
+                d='M52 30 Q100 24 148 30'
                 fill='none'
-                stroke='rgba(107, 42, 26, 0.3)'
+                stroke='rgba(107, 42, 26, 0.35)'
                 strokeWidth='2'
                 strokeLinecap='round'
-              />
-
-              {/* Lid dome */}
-              <path
-                d='M55 80 Q57 55 110 50 Q163 55 165 80'
-                fill='rgba(245, 233, 220, 0.6)'
-                stroke='rgba(107, 42, 26, 0.3)'
-                strokeWidth='2'
-                strokeLinecap='round'
-              />
-
-              {/* Lid rim */}
-              <path
-                d='M44 80 Q110 86 176 80'
-                fill='none'
-                stroke='rgba(107, 42, 26, 0.25)'
-                strokeWidth='1.5'
-                strokeLinecap='round'
-              />
-
-              {/* Straw hole in lid */}
-              <ellipse cx='135' cy='62' rx='5' ry='3'
-                fill='rgba(107, 42, 26, 0.15)'
-                stroke='rgba(107, 42, 26, 0.3)'
-                strokeWidth='1.5'
-              />
-
-              {/* Straw */}
-              <motion.path
-                d='M138 8 Q136 35 134 295'
-                stroke='rgba(107, 42, 26, 0.5)'
-                strokeWidth='5'
-                strokeLinecap='round'
-                initial={{ pathLength: activeStep >= 0 ? 1 : 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 0.6 }}
               />
 
               {/* Shine */}
               <path
-                d='M65 90 Q63 180 62 285'
-                stroke='rgba(255,255,255,0.4)'
+                d='M62 40 Q60 120 59 260'
+                stroke='rgba(255,255,255,0.45)'
                 strokeWidth='3'
                 strokeLinecap='round'
               />
 
-              {/* Cup sleeve */}
-              <path
-                d='M52 160 L48 230 Q110 238 172 230 L168 160 Q110 168 52 160 Z'
-                fill='rgba(107, 42, 26, 0.08)'
-                stroke='rgba(107, 42, 26, 0.15)'
-                strokeWidth='1'
-              />
+              {/* Straw */}
+              {activeStep === 3 && (
+                <motion.path
+                  d='M128 8 Q126 100 124 278'
+                  stroke='rgba(107, 42, 26, 0.6)'
+                  strokeWidth='4'
+                  strokeLinecap='round'
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 0.6 }}
+                />
+              )}
             </svg>
 
             <p style={{
