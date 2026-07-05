@@ -85,11 +85,12 @@ export default function BrewGuide() {
             justifyContent: 'center',
           }}>
             <svg
-              width='200'
-              height='300'
+              width='280'
+              height='380'
               viewBox='0 0 200 300'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
+              style={{ margin: '0 auto' }}
             >
               {/* Glass outline */}
               <path
