@@ -21,13 +21,38 @@ export default function Hero() {
       position: 'relative',
       overflow: 'hidden',
     }}>
+      <motion.div
+        initial={{ opacity: 0, scale: 1.05 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          left: '50%',
+          height: '100%',
+          zIndex: 0,
+        }}
+      >
+        <img
+          src={heroImg}
+          alt='Deepwell Cold Brew'
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
+          }}
+        />
+      </motion.div>
+
       <div style={{
         maxWidth: '1200px',
         width: '100%',
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '4rem',
-        alignItems: 'center',
+        position: 'relative',
+        zIndex: 1,
       }}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -94,23 +119,6 @@ export default function Hero() {
               {t('hero.brewLab')}
             </Link>
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
-        >
-          <img
-            src={heroImg}
-            alt='Deepwell Cold Brew'
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              borderRadius: '4px',
-            }}
-          />
         </motion.div>
       </div>
     </section>
