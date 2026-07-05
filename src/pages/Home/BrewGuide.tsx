@@ -35,8 +35,6 @@ const steps = [
 export default function BrewGuide() {
   const [activeStep, setActiveStep] = useState(-1)
 
-  const filledLayers = steps.slice(0, activeStep + 1)
-
   return (
     <section style={{
       backgroundColor: 'var(--color-oat-cream)',
@@ -84,115 +82,132 @@ export default function BrewGuide() {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-            <svg
-              width='200'
-              height='320'
-              viewBox='0 0 200 320'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-              style={{ margin: '0 auto', display: 'block' }}
-            >
-              {/* Clip path for liquid */}
-              <clipPath id='glassClip'>
-                <path d='M55 30 Q50 31 48 35 L38 270 Q38 278 100 280 Q162 278 162 270 L152 35 Q150 31 145 30 Z' />
-              </clipPath>
+            {/* CSS Cup */}
+            <div style={{
+              margin: '0 auto',
+              width: '160px',
+              position: 'relative',
+            }}>
+              {/* Straw */}
+              <motion.div
+                initial={{ height: 0 }}
+                animate={{ height: activeStep >= 0 ? '80px' : 0 }}
+                transition={{ duration: 0.4 }}
+                style={{
+                  position: 'absolute',
+                  width: '6px',
+                  backgroundColor: 'rgba(107, 42, 26, 0.5)',
+                  borderRadius: '3px',
+                  top: '-60px',
+                  right: '38px',
+                  transformOrigin: 'bottom',
+                }}
+              />
 
-              {/* Liquid layers */}
-              <g clipPath='url(#glassClip)'>
-                {filledLayers.map((layer, i) => {
-                  const layerHeight = 250 / steps.length
-                  const y = 280 - (i + 1) * layerHeight
-                  return (
-                    <motion.rect
+              {/* Lid */}
+              <div style={{
+                width: '160px',
+                height: '20px',
+                backgroundColor: 'var(--color-oat-cream)',
+                border: '2px solid rgba(107, 42, 26, 0.25)',
+                borderRadius: '12px 12px 0 0',
+                position: 'relative',
+                zIndex: 2,
+              }} />
+
+              {/* Cup */}
+              <div style={{
+                width: '160px',
+                height: '240px',
+                border: '2px solid rgba(107, 42, 26, 0.25)',
+                borderTop: 'none',
+                borderRadius: '0 0 40px 40px',
+                overflow: 'hidden',
+                position: 'relative',
+                backgroundColor: 'rgba(245, 233, 220, 0.3)',
+              }}>
+                {/* Layers bottom to top */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  display: 'flex',
+                  flexDirection: 'column-reverse',
+                }}>
+                  {steps.map((step, i) => (
+                    <motion.div
                       key={i}
-                      x='30'
-                      y={y}
-                      width='140'
-                      height={layerHeight + 2}
-                      fill={layer.color}
-                      initial={{ scaleY: 0 }}
-                      animate={{ scaleY: 1 }}
-                      style={{ transformOrigin: 'bottom' }}
-                      transition={{ duration: 0.6, ease: 'easeOut' }}
+                      initial={{ height: 0 }}
+                      animate={{ height: activeStep >= i ? '60px' : 0 }}
+                      transition={{ duration: 0.5, ease: 'easeOut' }}
+                      style={{
+                        backgroundColor: step.color,
+                        width: '100%',
+                        flexShrink: 0,
+                      }}
                     />
-                  )
-                })}
+                  ))}
+                </div>
 
                 {/* Ice cubes */}
                 {activeStep >= 0 && (
-                  <>
-                    <motion.rect x='55' y='235' width='22' height='22' rx='4'
-                      fill='rgba(255,255,255,0.65)' stroke='rgba(255,255,255,0.3)' strokeWidth='1'
-                      initial={{ opacity: 0, y: 220 }} animate={{ opacity: 1, y: 235 }}
-                      transition={{ duration: 0.4 }}
-                    />
-                    <motion.rect x='90' y='248' width='18' height='18' rx='3'
-                      fill='rgba(255,255,255,0.55)' stroke='rgba(255,255,255,0.2)' strokeWidth='1'
-                      initial={{ opacity: 0, y: 230 }} animate={{ opacity: 1, y: 248 }}
-                      transition={{ duration: 0.4, delay: 0.1 }}
-                    />
-                    <motion.rect x='118' y='238' width='20' height='20' rx='4'
-                      fill='rgba(255,255,255,0.5)' stroke='rgba(255,255,255,0.2)' strokeWidth='1'
-                      initial={{ opacity: 0, y: 222 }} animate={{ opacity: 1, y: 238 }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
-                    />
-                  </>
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '8px',
+                    left: 0,
+                    right: 0,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    zIndex: 2,
+                  }}>
+                    {[0, 1, 2].map(i => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: i * 0.1 }}
+                        style={{
+                          width: '22px',
+                          height: '22px',
+                          backgroundColor: 'rgba(255,255,255,0.65)',
+                          borderRadius: '4px',
+                          border: '1px solid rgba(255,255,255,0.4)',
+                        }}
+                      />
+                    ))}
+                  </div>
                 )}
-              </g>
 
-              {/* Glass outline — elegant rounded */}
-              <path
-                d='M55 30 Q50 31 48 35 L38 270 Q38 280 100 282 Q162 280 162 270 L152 35 Q150 31 145 30 Z'
-                fill='none'
-                stroke='rgba(107, 42, 26, 0.35)'
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
+                {/* Shine */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: '18px',
+                  width: '8px',
+                  height: '100%',
+                  background: 'linear-gradient(to bottom, rgba(255,255,255,0.25), transparent)',
+                  borderRadius: '4px',
+                  pointerEvents: 'none',
+                }} />
+              </div>
 
-              {/* Glass rim */}
-              <path
-                d='M52 30 Q100 24 148 30'
-                fill='none'
-                stroke='rgba(107, 42, 26, 0.35)'
-                strokeWidth='2'
-                strokeLinecap='round'
-              />
-
-              {/* Shine */}
-              <path
-                d='M62 40 Q60 120 59 260'
-                stroke='rgba(255,255,255,0.45)'
-                strokeWidth='3'
-                strokeLinecap='round'
-              />
-
-              {/* Straw */}
-              {activeStep === 3 && (
-                <motion.path
-                  d='M128 8 Q126 100 124 278'
-                  stroke='rgba(107, 42, 26, 0.6)'
-                  strokeWidth='4'
-                  strokeLinecap='round'
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 0.6 }}
-                />
-              )}
-            </svg>
-
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: '0.75rem',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: 'var(--color-deep-roast)',
-              opacity: activeStep >= 0 ? 0.6 : 0.3,
-              marginTop: '1.5rem',
-              transition: 'opacity 0.3s ease',
-            }}>
-              {activeStep >= 0 ? steps[activeStep].label : 'Hover a step'}
-            </p>
+              {/* Label */}
+              <p style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.7rem',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                color: 'var(--color-deep-roast)',
+                opacity: activeStep >= 0 ? 0.6 : 0.3,
+                marginTop: '1.5rem',
+                textAlign: 'center',
+                transition: 'opacity 0.3s ease',
+              }}>
+                {activeStep >= 0 ? steps[activeStep].label : 'Hover a step'}
+              </p>
+            </div>
           </div>
 
           {/* Right: steps */}
