@@ -47,9 +47,9 @@ export default function Hero() {
         gap: '4rem',
         alignItems: 'center',
         position: 'relative',
-        zIndex: 1,
+        zIndex: 2,
       }}>
-        <motion.div style={{ y: textY }}>
+        <motion.div style={{ y: textY, position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,7 +122,7 @@ export default function Hero() {
         </motion.div>
         </motion.div>
 
-        <motion.div style={{ y: imageY }}>
+        <motion.div style={{ y: imageY, position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
