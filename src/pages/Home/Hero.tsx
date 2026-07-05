@@ -1,26 +1,62 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
 import heroImg from '../../assets/images/Hero.jpg'
 
 export default function Hero() {
   const { t } = useTranslation()
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    setMousePos({
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top) / rect.height,
+    })
+  }
 
   return (
-    <section style={{
-      minHeight: '100vh',
-      backgroundColor: 'var(--color-cold-blue)',
-      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900' viewBox='0 0 1440 900'%3E%3Cg fill='none' stroke='rgba(107,42,26,0.08)' stroke-width='1'%3E%3Cpath d='M-200 200 C200 150 400 300 800 200 S1200 100 1700 200'/%3E%3Cpath d='M-200 250 C200 200 400 350 800 250 S1200 150 1700 250'/%3E%3Cpath d='M-200 300 C200 250 400 400 800 300 S1200 200 1700 300'/%3E%3Cpath d='M-200 350 C200 300 400 450 800 350 S1200 250 1700 350'/%3E%3Cpath d='M-200 400 C200 350 400 500 800 400 S1200 300 1700 400'/%3E%3Cpath d='M-200 450 C200 400 400 550 800 450 S1200 350 1700 450'/%3E%3Cpath d='M-200 500 C200 450 400 600 800 500 S1200 400 1700 500'/%3E%3Cpath d='M-200 550 C200 500 400 650 800 550 S1200 450 1700 550'/%3E%3Cpath d='M-200 600 C200 550 400 700 800 600 S1200 500 1700 600'/%3E%3Cpath d='M-200 650 C200 600 400 750 800 650 S1200 550 1700 650'/%3E%3C/g%3E%3C/svg%3E")`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '8rem 2rem 4rem',
-      position: 'relative',
-      overflow: 'hidden',
-    }}>
+    <section
+      onMouseMove={handleMouseMove}
+      style={{
+        minHeight: '100vh',
+        backgroundColor: 'var(--color-cold-blue)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '8rem 2rem 4rem',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+      <svg
+        style={{
+          position: 'absolute',
+          top: 0, left: 0,
+          width: '100%', height: '100%',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+        viewBox='0 0 1440 900'
+        preserveAspectRatio='xMidYMid slice'
+      >
+        {Array.from({ length: 12 }).map((_, i) => {
+          const offset = mousePos.y * 40 - 20
+          const xOffset = mousePos.x * 30 - 15
+          const y = 150 + i * 55
+          return (
+            <path
+              key={i}
+              d={`M-200 ${y + offset} C${300 + xOffset} ${y - 60 + offset} ${600 - xOffset} ${y + 80 + offset} ${900 + xOffset} ${y + offset} S${1300 - xOffset} ${y - 40 + offset} 1700 ${y + offset}`}
+              fill='none'
+              stroke='rgba(107,42,26,0.07)'
+              strokeWidth='1.5'
+              style={{ transition: 'd 0.3s ease' }}
+            />
+          )
+        })}
+      </svg>
+
       <div style={{
         maxWidth: '1200px',
         width: '100%',
@@ -28,6 +64,8 @@ export default function Hero() {
         gridTemplateColumns: '1fr 1fr',
         gap: '4rem',
         alignItems: 'center',
+        position: 'relative',
+        zIndex: 1,
       }}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
