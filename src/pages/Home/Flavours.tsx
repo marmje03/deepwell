@@ -7,7 +7,7 @@ import caramelImg from '../../assets/images/caramel.png'
 
 const flavours = [
   { name: 'Original', tagline: 'Smooth & Balanced', img: originalImg, bg: 'var(--color-cold-blue)' },
-  { name: 'Vanilla', tagline: 'Soft & Sweet', img: vanillaImg, bg: 'var(--color-oat-cream)' },
+  { name: 'Vanilla', tagline: 'Soft & Sweet', img: vanillaImg, bg: '#EDE4D8' },
   { name: 'Mocha', tagline: 'Rich & Chocolatey', img: mochaImg, bg: 'var(--color-rose-latte)' },
   { name: 'Caramel', tagline: 'Warm & Smooth', img: caramelImg, bg: 'var(--color-caramel-foam)' },
 ]
