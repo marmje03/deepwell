@@ -132,7 +132,7 @@ export default function BrewGuide() {
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  display: 'flex',
+                  display: activeStep === 3 ? 'none' : 'flex',
                   flexDirection: 'column-reverse',
                 }}>
                   {steps.map((step, i) => (
@@ -151,35 +151,31 @@ export default function BrewGuide() {
                 </div>
 
                 {/* Ice cubes */}
-                {activeStep >= 0 && (
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '8px',
-                    left: 0,
-                    right: 0,
-                    display: 'flex',
-                    justifyContent: 'center',
-                    gap: '6px',
-                    zIndex: 2,
-                  }}>
-                    {[0, 1, 2].map(i => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: i * 0.1 }}
-                        style={{
-                          width: '28px',
-                          height: '28px',
-                          backgroundColor: 'rgba(255,255,255,0.65)',
-                          borderRadius: '4px',
-                          border: '1px solid rgba(255,255,255,0.4)',
-                          boxShadow: 'inset 0 0 6px rgba(255,255,255,0.8)',
-                        }}
-                      />
-                    ))}
-                  </div>
-                )}
+                {activeStep >= 0 && [
+                  { left: '20px', bottom: '30px', rotate: '-8deg', size: 28 },
+                  { left: '60px', bottom: '45px', rotate: '5deg', size: 24 },
+                  { left: '100px', bottom: '28px', rotate: '-3deg', size: 26 },
+                ].map((cube, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    style={{
+                      position: 'absolute',
+                      bottom: cube.bottom,
+                      left: cube.left,
+                      width: `${cube.size}px`,
+                      height: `${cube.size}px`,
+                      backgroundColor: 'rgba(255,255,255,0.75)',
+                      border: '1.5px solid rgba(255,255,255,0.9)',
+                      borderRadius: '4px',
+                      transform: `rotate(${cube.rotate})`,
+                      boxShadow: 'inset 0 0 8px rgba(255,255,255,0.6)',
+                      zIndex: 4,
+                    }}
+                  />
+                ))}
 
                 {/* Shine */}
                 <div style={{
@@ -205,7 +201,7 @@ export default function BrewGuide() {
                       right: 0,
                       height: '240px',
                       background: 'linear-gradient(to top, rgba(107, 42, 26, 0.7), rgba(180, 120, 80, 0.5))',
-                      zIndex: 3,
+                      zIndex: 5,
                     }}
                   />
                 )}
