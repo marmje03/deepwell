@@ -1,14 +1,25 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
 import heroImg from '../../assets/images/Hero.jpg'
 import bgImg from '../../assets/images/deepwell background.png'
 
 export default function Hero() {
   const { t } = useTranslation()
+  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 })
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    setMousePos({
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top) / rect.height,
+    })
+  }
 
   return (
     <section
+      onMouseMove={handleMouseMove}
       style={{
         minHeight: '100vh',
         backgroundColor: 'var(--color-cold-blue)',
@@ -23,6 +34,35 @@ export default function Hero() {
         position: 'relative',
         overflow: 'hidden',
       }}>
+      <motion.svg
+        style={{
+          position: 'absolute',
+          top: 0, left: 0,
+          width: '100%', height: '100%',
+          pointerEvents: 'none',
+          zIndex: 0,
+          opacity: 0.4,
+        }}
+        viewBox='0 0 1440 900'
+        preserveAspectRatio='xMidYMid slice'
+      >
+        {Array.from({ length: 8 }).map((_, i) => {
+          const xOff = (mousePos.x - 0.5) * 60
+          const yOff = (mousePos.y - 0.5) * 40
+          const y = 100 + i * 100
+          return (
+            <motion.path
+              key={i}
+              d={`M-100 ${y + yOff * (i * 0.1)} C${400 + xOff} ${y - 80 + yOff} ${700 - xOff} ${y + 80 - yOff} ${1100 + xOff} ${y + yOff * 0.5} S1600 ${y - 40} 1700 ${y}`}
+              fill='none'
+              stroke='rgba(107,42,26,0.12)'
+              strokeWidth='1'
+              animate={{ d: `M-100 ${y + yOff * (i * 0.1)} C${400 + xOff} ${y - 80 + yOff} ${700 - xOff} ${y + 80 - yOff} ${1100 + xOff} ${y + yOff * 0.5} S1600 ${y - 40} 1700 ${y}` }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+            />
+          )
+        })}
+      </motion.svg>
       <div style={{
         maxWidth: '1200px',
         width: '100%',
