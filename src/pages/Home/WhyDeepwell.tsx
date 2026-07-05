@@ -26,41 +26,41 @@ export default function WhyDeepwell() {
       padding: '4rem 2rem',
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          style={{ marginBottom: '2.5rem' }}
+        >
+          <p style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '0.75rem',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'var(--color-deep-roast)',
+            opacity: 0.6,
+            marginBottom: '1rem',
+          }}>
+            Why Deepwell
+          </p>
+          <h2 style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+            color: 'var(--color-deep-roast)',
+            letterSpacing: '0.05em',
+          }}>
+            Coffee that respects your time.
+          </h2>
+        </motion.div>
+
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           gap: '6rem',
-          alignItems: 'center',
+          alignItems: 'start',
         }}>
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              style={{ marginBottom: '2.5rem' }}
-            >
-              <p style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: '0.75rem',
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: 'var(--color-deep-roast)',
-                opacity: 0.6,
-                marginBottom: '1rem',
-              }}>
-                Why Deepwell
-              </p>
-              <h2 style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-                color: 'var(--color-deep-roast)',
-                letterSpacing: '0.05em',
-              }}>
-                Coffee that respects your time.
-              </h2>
-            </motion.div>
-
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               {reasons.map((r, i) => (
                 <motion.div
