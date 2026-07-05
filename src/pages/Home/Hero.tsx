@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import heroImg from '../../assets/images/Hero.jpg'
+import bgImg from '../../assets/images/deepwell background.png'
 
 export default function Hero() {
   return (
     <section style={{
       minHeight: '100vh',
       backgroundColor: 'var(--color-cold-blue)',
+      backgroundImage: `url(${bgImg})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
