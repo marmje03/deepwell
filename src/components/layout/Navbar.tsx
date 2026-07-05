@@ -1,0 +1,71 @@
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
+
+export default function Navbar() {
+  const { t, i18n } = useTranslation()
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const toggleLanguage = () => {
+    i18n.changeLanguage(i18n.language === 'en' ? 'no' : 'en')
+  }
+
+  return (
+    <nav style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 100,
+      padding: '1.5rem 2rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      backgroundColor: 'transparent',
+    }}>
+      <Link to='/' style={{
+        fontFamily: 'var(--font-heading)',
+        fontSize: '1.25rem',
+        color: 'var(--color-deep-roast)',
+        textDecoration: 'none',
+        letterSpacing: '0.15em',
+      }}>
+        DEEPWELL
+      </Link>
+
+      <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+        {[
+          { to: '/recipes', label: t('nav.recipes') },
+          { to: '/brew-lab', label: t('nav.brewLab') },
+          { to: '/journal', label: t('nav.journal') },
+          { to: '/shop', label: t('nav.shop') },
+        ].map(({ to, label }) => (
+          <Link key={to} to={to} style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '0.8rem',
+            letterSpacing: '0.1em',
+            color: 'var(--color-deep-roast)',
+            textDecoration: 'none',
+            textTransform: 'uppercase',
+          }}>
+            {label}
+          </Link>
+        ))}
+
+        <button onClick={toggleLanguage} style={{
+          fontFamily: 'var(--font-body)',
+          fontSize: '0.8rem',
+          letterSpacing: '0.1em',
+          color: 'var(--color-deep-roast)',
+          background: 'none',
+          border: '1px solid var(--color-deep-roast)',
+          padding: '0.25rem 0.75rem',
+          cursor: 'pointer',
+          textTransform: 'uppercase',
+        }}>
+          {i18n.language === 'en' ? 'NO' : 'EN'}
+        </button>
+      </div>
+    </nav>
+  )
+}
