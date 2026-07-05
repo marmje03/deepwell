@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import heroImg from '../../assets/images/Hero.jpg'
+import brandBg from '../../assets/images/Deepwell-3.png'
 
 export default function Hero() {
   const { t } = useTranslation()
@@ -10,6 +11,10 @@ export default function Hero() {
     <section style={{
       minHeight: '100vh',
       backgroundColor: 'var(--color-cold-blue)',
+      backgroundImage: `url(${brandBg})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
