@@ -20,7 +20,7 @@ const steps = [
     number: '03',
     title: 'Add your liquid',
     body: 'Top with 2 parts water, oat milk, whole milk, or almond — your choice.',
-    color: 'rgba(245, 233, 220, 0.9)',
+    color: 'rgba(210, 190, 165, 0.9)',
     label: 'Milk / Water',
   },
   {
@@ -169,11 +169,12 @@ export default function BrewGuide() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: i * 0.1 }}
                         style={{
-                          width: '22px',
-                          height: '22px',
+                          width: '28px',
+                          height: '28px',
                           backgroundColor: 'rgba(255,255,255,0.65)',
                           borderRadius: '4px',
                           border: '1px solid rgba(255,255,255,0.4)',
+                          boxShadow: 'inset 0 0 6px rgba(255,255,255,0.8)',
                         }}
                       />
                     ))}
@@ -191,6 +192,23 @@ export default function BrewGuide() {
                   borderRadius: '4px',
                   pointerEvents: 'none',
                 }} />
+
+                {activeStep === 3 && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      height: '240px',
+                      background: 'linear-gradient(to top, rgba(107, 42, 26, 0.7), rgba(180, 120, 80, 0.5))',
+                      zIndex: 3,
+                    }}
+                  />
+                )}
               </div>
 
               {/* Label */}
