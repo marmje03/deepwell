@@ -1,27 +1,21 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useState } from 'react'
 import heroImg from '../../assets/images/Hero.jpg'
+import bgImg from '../../assets/images/deepwell background.png'
 
 export default function Hero() {
   const { t } = useTranslation()
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    setMousePos({
-      x: (e.clientX - rect.left) / rect.width,
-      y: (e.clientY - rect.top) / rect.height,
-    })
-  }
 
   return (
     <section
-      onMouseMove={handleMouseMove}
       style={{
         minHeight: '100vh',
         backgroundColor: 'var(--color-cold-blue)',
+        backgroundImage: `url(${bgImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -29,34 +23,6 @@ export default function Hero() {
         position: 'relative',
         overflow: 'hidden',
       }}>
-      <svg
-        style={{
-          position: 'absolute',
-          top: 0, left: 0,
-          width: '100%', height: '100%',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }}
-        viewBox='0 0 1440 900'
-        preserveAspectRatio='xMidYMid slice'
-      >
-        {Array.from({ length: 12 }).map((_, i) => {
-          const offset = mousePos.y * 40 - 20
-          const xOffset = mousePos.x * 30 - 15
-          const y = 150 + i * 55
-          return (
-            <path
-              key={i}
-              d={`M-200 ${y + offset} C${300 + xOffset} ${y - 60 + offset} ${600 - xOffset} ${y + 80 + offset} ${900 + xOffset} ${y + offset} S${1300 - xOffset} ${y - 40 + offset} 1700 ${y + offset}`}
-              fill='none'
-              stroke='rgba(107,42,26,0.07)'
-              strokeWidth='1.5'
-              style={{ transition: 'd 0.3s ease' }}
-            />
-          )
-        })}
-      </svg>
-
       <div style={{
         maxWidth: '1200px',
         width: '100%',
