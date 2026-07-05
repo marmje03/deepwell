@@ -6,6 +6,7 @@ import RecipesGallery from './pages/Recipes/RecipesGallery'
 import RecipeDetail from './pages/Recipes/RecipeDetail'
 import JournalPage from './pages/Journal/JournalPage'
 import ArticleDetail from './pages/Journal/ArticleDetail'
+import BrewLab from './pages/BrewLab/BrewLab'
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="/shop" element={<div>Shop</div>} />
         <Route path="/recipes" element={<RecipesGallery />} />
         <Route path="/recipes/:slug" element={<RecipeDetail />} />
-        <Route path="/brew-lab" element={<div>Brew Lab</div>} />
+        <Route path="/brew-lab" element={<BrewLab />} />
         <Route path="/journal" element={<JournalPage />} />
         <Route path="/journal/:slug" element={<ArticleDetail />} />
         <Route path="/account" element={<div>Account</div>} />

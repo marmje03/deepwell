@@ -60,7 +60,13 @@
     "ingredients": "Ingredienser",
     "steps": "Fremgangsmåte",
     "backToRecipes": "Tilbake til oppskrifter",
-    "notFound": "Fant ikke oppskriften."
+    "notFound": "Fant ikke oppskriften.",
+    "madeWith": "Laget med Deepwell {{flavour}}",
+    "categories": {
+      "everyday": "Hverdagslig",
+      "sweet": "Søte fristelser",
+      "refreshing": "Forfriskende"
+    }
   },
   "journal": {
     "eyebrow": "Journal",
@@ -68,5 +74,55 @@
     "featuredLabel": "I fokus",
     "backToJournal": "Tilbake til journal",
     "notFound": "Fant ikke artikkelen."
+  },
+  "brewLab": {
+    "eyebrow": "Brew Lab",
+    "title": "Lag din perfekte kopp.",
+    "resultLabel": "Din kreasjon",
+    "descriptionSentence": "Et {{strengthDescriptor}} brygg med {{liquid}} og et hint av {{flavour}}.",
+    "steps": {
+      "flavour": "Smak",
+      "liquid": "Væske",
+      "ice": "Is",
+      "strength": "Styrke"
+    },
+    "flavour": {
+      "original": "Original",
+      "vanilla": "Vanilje",
+      "mocha": "Mocha",
+      "caramel": "Karamell"
+    },
+    "liquid": {
+      "water": "Vann",
+      "oatMilk": "Havremelk",
+      "wholeMilk": "Helmelk",
+      "almondMilk": "Mandelmelk"
+    },
+    "liquidAdjective": {
+      "water": "",
+      "oatMilk": "Havre",
+      "wholeMilk": "Kremet",
+      "almondMilk": "Mandel"
+    },
+    "ice": {
+      "none": "Ingen is",
+      "little": "Litt is",
+      "lots": "Mye is"
+    },
+    "strength": {
+      "mild": "Mild (1:3)",
+      "classic": "Klassisk (1:2)",
+      "strong": "Sterk (1:1)"
+    },
+    "strengthName": {
+      "mild": "Mild",
+      "classic": "Klassisk",
+      "strong": "Sterk"
+    },
+    "strengthDescriptor": {
+      "mild": "lett og mykt",
+      "classic": "mykt, balansert",
+      "strong": "kraftig og intenst"
+    }
   }
 }

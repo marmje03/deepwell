@@ -77,15 +77,15 @@ export default function RecipeDetail() {
           />
 
           <p style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: '0.7rem',
+            fontFamily: 'var(--font-heading)',
+            fontSize: '0.75rem',
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
             color: 'var(--color-deep-roast)',
-            opacity: 0.5,
-            marginBottom: '0.75rem',
+            opacity: 0.6,
+            marginBottom: '1rem',
           }}>
-            {recipe.flavour}
+            {t('recipes.madeWith', { flavour: recipe.flavourBase })}
           </p>
 
           <h1 style={{

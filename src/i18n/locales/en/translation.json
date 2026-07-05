@@ -60,7 +60,13 @@
     "ingredients": "Ingredients",
     "steps": "Steps",
     "backToRecipes": "Back to recipes",
-    "notFound": "Recipe not found."
+    "notFound": "Recipe not found.",
+    "madeWith": "Made with Deepwell {{flavour}}",
+    "categories": {
+      "everyday": "Everyday",
+      "sweet": "Sweet Treats",
+      "refreshing": "Refreshing"
+    }
   },
   "journal": {
     "eyebrow": "Journal",
@@ -68,5 +74,55 @@
     "featuredLabel": "Featured",
     "backToJournal": "Back to journal",
     "notFound": "Article not found."
+  },
+  "brewLab": {
+    "eyebrow": "Brew Lab",
+    "title": "Build your perfect cup.",
+    "resultLabel": "Your creation",
+    "descriptionSentence": "A {{strengthDescriptor}} pour with {{liquid}} and a hint of {{flavour}}.",
+    "steps": {
+      "flavour": "Flavour",
+      "liquid": "Liquid",
+      "ice": "Ice",
+      "strength": "Strength"
+    },
+    "flavour": {
+      "original": "Original",
+      "vanilla": "Vanilla",
+      "mocha": "Mocha",
+      "caramel": "Caramel"
+    },
+    "liquid": {
+      "water": "Water",
+      "oatMilk": "Oat Milk",
+      "wholeMilk": "Whole Milk",
+      "almondMilk": "Almond Milk"
+    },
+    "liquidAdjective": {
+      "water": "",
+      "oatMilk": "Oat",
+      "wholeMilk": "Creamy",
+      "almondMilk": "Almond"
+    },
+    "ice": {
+      "none": "No Ice",
+      "little": "A Little",
+      "lots": "Lots of Ice"
+    },
+    "strength": {
+      "mild": "Mild (1:3)",
+      "classic": "Classic (1:2)",
+      "strong": "Strong (1:1)"
+    },
+    "strengthName": {
+      "mild": "Mild",
+      "classic": "Classic",
+      "strong": "Strong"
+    },
+    "strengthDescriptor": {
+      "mild": "light and smooth",
+      "classic": "smooth, balanced",
+      "strong": "bold and intense"
+    }
   }
 }
