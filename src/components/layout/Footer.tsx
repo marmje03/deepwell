@@ -53,7 +53,7 @@ export default function Footer() {
             }}>
               {t('footer.shopHeading')}
             </p>
-            {['original', 'vanilla', 'mocha', 'caramel'].map(key => (
+            {['original', 'vanilla', 'mocha', 'caramel', 'coconut', 'hazelnut'].map(key => (
               <Link key={key} to='/shop' style={{
                 display: 'block',
                 fontFamily: 'var(--font-body)',
