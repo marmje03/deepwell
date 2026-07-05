@@ -23,7 +23,7 @@ export default function WhyDeepwell() {
   return (
     <section style={{
       backgroundColor: 'var(--color-cold-blue)',
-      padding: '5rem 2rem',
+      padding: '4rem 2rem',
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{
@@ -53,7 +53,7 @@ export default function WhyDeepwell() {
               </p>
               <h2 style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                fontSize: 'clamp(1.5rem, 3vw, 2rem)',
                 color: 'var(--color-deep-roast)',
                 letterSpacing: '0.05em',
               }}>
@@ -113,8 +113,9 @@ export default function WhyDeepwell() {
               alt='Deepwell lifestyle'
               style={{
                 width: '100%',
-                height: 'auto',
-                objectFit: 'contain',
+                maxHeight: '400px',
+                objectFit: 'cover',
+                objectPosition: 'center top',
                 borderRadius: '4px',
               }}
             />
