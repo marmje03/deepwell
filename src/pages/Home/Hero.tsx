@@ -1,0 +1,132 @@
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+
+export default function Hero() {
+  const { t } = useTranslation()
+
+  return (
+    <section style={{
+      minHeight: '100vh',
+      backgroundColor: 'var(--color-cold-blue)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '8rem 2rem 4rem',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      <div style={{
+        maxWidth: '1200px',
+        width: '100%',
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '4rem',
+        alignItems: 'center',
+      }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <p style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '0.75rem',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'var(--color-deep-roast)',
+            marginBottom: '1.5rem',
+            opacity: 0.7,
+          }}>
+            Cold Brew Concentrate
+          </p>
+
+          <h1 style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+            color: 'var(--color-deep-roast)',
+            lineHeight: 1.1,
+            marginBottom: '2rem',
+            letterSpacing: '0.05em',
+          }}>
+            Depth in<br />every drop.
+          </h1>
+
+          <p style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '1rem',
+            color: 'var(--color-deep-roast)',
+            opacity: 0.7,
+            lineHeight: 1.8,
+            marginBottom: '3rem',
+            maxWidth: '400px',
+          }}>
+            Premium cold brew concentrate, crafted for those who take their coffee seriously. Just add water.
+          </p>
+
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <Link to='/shop' style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.8rem',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              color: 'var(--color-oat-cream)',
+              backgroundColor: 'var(--color-deep-roast)',
+              padding: '1rem 2rem',
+              textDecoration: 'none',
+              display: 'inline-block',
+            }}>
+              Shop Now
+            </Link>
+
+            <Link to='/brew-lab' style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.8rem',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              color: 'var(--color-deep-roast)',
+              border: '1px solid var(--color-deep-roast)',
+              padding: '1rem 2rem',
+              textDecoration: 'none',
+              display: 'inline-block',
+            }}>
+              Brew Lab
+            </Link>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <div style={{
+            width: '320px',
+            height: '480px',
+            backgroundColor: 'var(--color-oat-cream)',
+            borderRadius: '4px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            opacity: 0.6,
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-heading)',
+              color: 'var(--color-deep-roast)',
+              fontSize: '0.8rem',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+            }}>
+              Product Image
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
