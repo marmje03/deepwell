@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "recipes": "Recipes",
+    "brewLab": "Brew Lab",
+    "journal": "Journal",
+    "account": "Account"
+  }
+}

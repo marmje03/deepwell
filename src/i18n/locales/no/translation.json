@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Hjem",
+    "shop": "Butikk",
+    "recipes": "Oppskrifter",
+    "brewLab": "Brew Lab",
+    "journal": "Journal",
+    "account": "Konto"
+  }
+}
