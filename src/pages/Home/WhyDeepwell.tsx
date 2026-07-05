@@ -112,10 +112,10 @@ export default function WhyDeepwell() {
               src={lifestyleImg}
               alt='Deepwell lifestyle'
               style={{
-                width: '100%',
-                maxHeight: '400px',
-                objectFit: 'cover',
-                objectPosition: 'center top',
+                width: '60%',
+                height: 'auto',
+                display: 'block',
+                margin: '0 auto',
                 borderRadius: '4px',
               }}
             />
