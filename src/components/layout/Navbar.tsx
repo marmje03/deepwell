@@ -82,6 +82,39 @@ export default function Navbar() {
         }}>
           {i18n.language === 'en' ? 'NO' : 'EN'}
         </button>
+
+        <div style={{ position: 'relative', display: 'flex' }}>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--color-deep-roast)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M6 8V6a6 6 0 0 1 12 0v2" />
+            <path d="M4 8h16l-1.2 12.1a2 2 0 0 1-2 1.9H7.2a2 2 0 0 1-2-1.9L4 8Z" />
+          </svg>
+          <span style={{
+            position: 'absolute',
+            top: '-8px',
+            right: '-10px',
+            minWidth: '16px',
+            height: '16px',
+            borderRadius: '50%',
+            backgroundColor: 'var(--color-deep-roast)',
+            color: 'var(--color-oat-cream)',
+            fontFamily: 'var(--font-body)',
+            fontSize: '0.6rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+            0
+          </span>
+        </div>
       </div>
     </nav>
   )

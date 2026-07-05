@@ -141,5 +141,13 @@
         "coconut": { "name": "Kokos", "description": "Lett, luftig og hjemme uansett hvor dagen tar deg." }
       }
     }
+  },
+  "shop": {
+    "eyebrow": "Butikk",
+    "title": "Ta med deg Deepwell hjem.",
+    "addToCart": "Legg i handlekurv",
+    "backToShop": "Tilbake til butikk",
+    "price": "kr 99",
+    "soldOut": "Utsolgt"
   }
 }

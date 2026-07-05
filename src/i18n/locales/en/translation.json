@@ -141,5 +141,13 @@
         "coconut": { "name": "Coconut", "description": "Light, breezy, and at home wherever the day takes you." }
       }
     }
+  },
+  "shop": {
+    "eyebrow": "Shop",
+    "title": "Take Deepwell home.",
+    "addToCart": "Add to Cart",
+    "backToShop": "Back to shop",
+    "price": "kr 99",
+    "soldOut": "Sold Out"
   }
 }
