@@ -38,7 +38,7 @@ export default function WhyDeepwell() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              style={{ marginBottom: '3rem' }}
+              style={{ marginBottom: '2.5rem' }}
             >
               <p style={{
                 fontFamily: 'var(--font-body)',
@@ -71,7 +71,7 @@ export default function WhyDeepwell() {
                   viewport={{ once: true }}
                   style={{
                     borderTop: '1px solid rgba(107, 42, 26, 0.2)',
-                    padding: '2rem 0',
+                    padding: '1.5rem 0',
                   }}
                 >
                   <p style={{
@@ -113,8 +113,8 @@ export default function WhyDeepwell() {
               alt='Deepwell lifestyle'
               style={{
                 width: '100%',
-                height: '450px',
-                objectFit: 'cover',
+                height: 'auto',
+                objectFit: 'contain',
                 borderRadius: '4px',
               }}
             />
