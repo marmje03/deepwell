@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import heroImg from '../../assets/images/Hero.jpg'
 
 export default function Hero() {
   const { t } = useTranslation()
@@ -105,26 +106,16 @@ export default function Hero() {
             alignItems: 'center',
           }}
         >
-          <div style={{
-            width: '320px',
-            height: '480px',
-            backgroundColor: 'var(--color-oat-cream)',
-            borderRadius: '4px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            opacity: 0.6,
-          }}>
-            <p style={{
-              fontFamily: 'var(--font-heading)',
-              color: 'var(--color-deep-roast)',
-              fontSize: '0.8rem',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-            }}>
-              Product Image
-            </p>
-          </div>
+          <img
+            src={heroImg}
+            alt='Deepwell Cold Brew'
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '4px',
+            }}
+          />
         </motion.div>
       </div>
     </section>
