@@ -54,7 +54,7 @@ export default function Navbar() {
           { to: '/', label: t('nav.home') },
           { to: '/recipes', label: t('nav.recipes') },
           { to: '/brew-lab', label: t('nav.brewLab') },
-          { to: '/journal', label: t('nav.journal') },
+          // { to: '/journal', label: t('nav.journal') },
           { to: '/shop', label: t('nav.shop') },
         ].map(({ to, label }) => (
           <Link key={to} to={to} style={{

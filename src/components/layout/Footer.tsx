@@ -87,7 +87,7 @@ export default function Footer() {
             {[
               { key: 'brewLab', to: '/brew-lab' },
               { key: 'recipes', to: '/recipes' },
-              { key: 'journal', to: '/journal' },
+              // { key: 'journal', to: '/journal' },
             ].map(item => (
               <Link key={item.key} to={item.to} style={{
                 display: 'block',
