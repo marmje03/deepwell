@@ -23,10 +23,6 @@ export default function Hero() {
       style={{
         minHeight: '100vh',
         backgroundColor: 'var(--color-cold-blue)',
-        backgroundImage: `url(${bgImg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -34,35 +30,22 @@ export default function Hero() {
         position: 'relative',
         overflow: 'hidden',
       }}>
-      <motion.svg
+      <motion.div
+        animate={{
+          x: (mousePos.x - 0.5) * -20,
+          y: (mousePos.y - 0.5) * -15,
+        }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
           position: 'absolute',
-          top: 0, left: 0,
-          width: '100%', height: '100%',
-          pointerEvents: 'none',
+          inset: '-30px',
+          backgroundImage: `url(${bgImg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           zIndex: 0,
-          opacity: 0.4,
         }}
-        viewBox='0 0 1440 900'
-        preserveAspectRatio='xMidYMid slice'
-      >
-        {Array.from({ length: 8 }).map((_, i) => {
-          const xOff = (mousePos.x - 0.5) * 60
-          const yOff = (mousePos.y - 0.5) * 40
-          const y = 100 + i * 100
-          return (
-            <motion.path
-              key={i}
-              d={`M-100 ${y + yOff * (i * 0.1)} C${400 + xOff} ${y - 80 + yOff} ${700 - xOff} ${y + 80 - yOff} ${1100 + xOff} ${y + yOff * 0.5} S1600 ${y - 40} 1700 ${y}`}
-              fill='none'
-              stroke='rgba(107,42,26,0.12)'
-              strokeWidth='1'
-              animate={{ d: `M-100 ${y + yOff * (i * 0.1)} C${400 + xOff} ${y - 80 + yOff} ${700 - xOff} ${y + 80 - yOff} ${1100 + xOff} ${y + yOff * 0.5} S1600 ${y - 40} 1700 ${y}` }}
-              transition={{ duration: 0.4, ease: 'easeOut' }}
-            />
-          )
-        })}
-      </motion.svg>
+      />
       <div style={{
         maxWidth: '1200px',
         width: '100%',
