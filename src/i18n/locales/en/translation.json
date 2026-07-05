@@ -53,5 +53,13 @@
     "email": "hello@deepwell.co",
     "copyright": "© 2025 Deepwell. All rights reserved.",
     "credit": "A concept brand by Reden Studio."
+  },
+  "recipes": {
+    "eyebrow": "Recipes",
+    "title": "Made with Deepwell.",
+    "ingredients": "Ingredients",
+    "steps": "Steps",
+    "backToRecipes": "Back to recipes",
+    "notFound": "Recipe not found."
   }
 }

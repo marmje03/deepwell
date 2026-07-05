@@ -53,5 +53,13 @@
     "email": "hello@deepwell.co",
     "copyright": "© 2025 Deepwell. Alle rettigheter forbeholdt.",
     "credit": "Et konseptmerke av Reden Studio."
+  },
+  "recipes": {
+    "eyebrow": "Oppskrifter",
+    "title": "Laget med Deepwell.",
+    "ingredients": "Ingredienser",
+    "steps": "Fremgangsmåte",
+    "backToRecipes": "Tilbake til oppskrifter",
+    "notFound": "Fant ikke oppskriften."
   }
 }
