@@ -1,84 +1,21 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import heroImg from '../../assets/images/Hero.jpg'
+import bgImg from '../../assets/images/deepwell background.png'
 
 export default function Hero() {
   const { t } = useTranslation()
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const mouseRef = useRef({ x: 0.5, y: 0.5 })
-  const animRef = useRef<number>(0)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
-    }
-    resize()
-    window.addEventListener('resize', resize)
-
-    const NUM_LINES = 14
-
-    const draw = () => {
-      const w = canvas.width
-      const h = canvas.height
-      ctx.clearRect(0, 0, w, h)
-
-      const mx = mouseRef.current.x
-      const my = mouseRef.current.y
-
-      for (let i = 0; i < NUM_LINES; i++) {
-        const t = Date.now() / 2000
-        const baseY = (i / NUM_LINES) * h * 1.2 - h * 0.1
-
-        ctx.beginPath()
-        ctx.strokeStyle = 'rgba(107, 42, 26, 0.09)'
-        ctx.lineWidth = 1
-
-        const segments = 12
-        for (let j = 0; j <= segments; j++) {
-          const x = (j / segments) * w
-          const distX = x / w - mx
-          const distY = baseY / h - my
-          const dist = Math.sqrt(distX * distX + distY * distY)
-          const wave = Math.sin(j * 0.5 + t + i * 0.4) * 18
-          const push = Math.max(0, 1 - dist * 2) * (my - 0.5) * 80
-          const y = baseY + wave + push
-
-          if (j === 0) ctx.moveTo(x, y)
-          else ctx.lineTo(x, y)
-        }
-        ctx.stroke()
-      }
-
-      animRef.current = requestAnimationFrame(draw)
-    }
-
-    draw()
-
-    return () => {
-      window.removeEventListener('resize', resize)
-      cancelAnimationFrame(animRef.current)
-    }
-  }, [])
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    mouseRef.current = {
-      x: (e.clientX - rect.left) / rect.width,
-      y: (e.clientY - rect.top) / rect.height,
-    }
-  }
+  const sectionRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] })
+  const textY = useTransform(scrollYProgress, [0, 1], ['0px', '-80px'])
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0px', '-40px'])
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0px', '60px'])
 
   return (
     <section
-      onMouseMove={handleMouseMove}
+      ref={sectionRef}
       style={{
         minHeight: '100vh',
         backgroundColor: 'var(--color-cold-blue)',
@@ -89,13 +26,15 @@ export default function Hero() {
         position: 'relative',
         overflow: 'hidden',
       }}>
-      <canvas
-        ref={canvasRef}
+      <motion.div
         style={{
+          y: bgY,
           position: 'absolute',
-          top: 0, left: 0,
-          width: '100%', height: '100%',
-          pointerEvents: 'none',
+          inset: '-30px',
+          backgroundImage: `url(${bgImg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           zIndex: 0,
         }}
       />
@@ -109,6 +48,7 @@ export default function Hero() {
         position: 'relative',
         zIndex: 1,
       }}>
+        <motion.div style={{ y: textY }}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -179,7 +119,9 @@ export default function Hero() {
             </Link>
           </div>
         </motion.div>
+        </motion.div>
 
+        <motion.div style={{ y: imageY }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -200,6 +142,7 @@ export default function Hero() {
               borderRadius: '4px',
             }}
           />
+        </motion.div>
         </motion.div>
       </div>
     </section>
