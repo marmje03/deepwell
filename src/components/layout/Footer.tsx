@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useIsMobile } from '../../hooks/useIsMobile'
 
 export default function Footer() {
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
 
   return (
     <footer style={{
       backgroundColor: 'var(--color-deep-roast)',
-      padding: '5rem 2rem 3rem',
+      padding: isMobile ? '3rem 1.5rem 2rem' : '5rem 2rem 3rem',
       color: 'var(--color-oat-cream)',
     }}>
       <div style={{
@@ -16,9 +18,9 @@ export default function Footer() {
       }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '2fr 1fr 1fr 1fr',
-          gap: '4rem',
-          marginBottom: '4rem',
+          gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr 1fr 1fr',
+          gap: isMobile ? '2.5rem' : '4rem',
+          marginBottom: isMobile ? '2.5rem' : '4rem',
         }}>
           {/* Brand */}
           <div>
@@ -135,8 +137,11 @@ export default function Footer() {
           borderTop: '1px solid rgba(245, 233, 220, 0.15)',
           paddingTop: '2rem',
           display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
+          gap: isMobile ? '0.75rem' : 0,
+          textAlign: isMobile ? 'center' : undefined,
         }}>
           <p style={{
             fontFamily: 'var(--font-body)',

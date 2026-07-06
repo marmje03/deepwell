@@ -2,12 +2,14 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
+import { useIsMobile } from '../../hooks/useIsMobile'
 import { products } from '../../data/products'
 import Toast from '../../components/ui/Toast'
 
 export default function ShopPage() {
   const { t } = useTranslation()
   const [toastVisible, setToastVisible] = useState(false)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     if (!toastVisible) return
@@ -50,8 +52,9 @@ export default function ShopPage() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
           gap: '2rem',
+          alignItems: 'stretch',
         }}>
           {products.map((product, i) => (
             <motion.div
@@ -60,6 +63,7 @@ export default function ShopPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true }}
+              style={{ height: '100%' }}
             >
               <div style={{
                 backgroundColor: 'var(--color-white)',
@@ -67,6 +71,9 @@ export default function ShopPage() {
                 overflow: 'hidden',
                 boxShadow: '0 4px 20px rgba(107, 42, 26, 0.06)',
                 transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-8px)'
@@ -77,9 +84,9 @@ export default function ShopPage() {
                 e.currentTarget.style.boxShadow = '0 4px 20px rgba(107, 42, 26, 0.06)'
               }}
               >
-                <Link to={`/shop/${product.slug}`} style={{ textDecoration: 'none' }}>
+                <Link to={`/shop/${product.slug}`} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', flex: 1 }}>
                   <div style={{
-                    padding: '2.5rem 1.5rem 1.5rem',
+                    padding: '1rem',
                     display: 'flex',
                     justifyContent: 'center',
                   }}>
@@ -94,7 +101,7 @@ export default function ShopPage() {
                       }}
                     />
                   </div>
-                  <div style={{ padding: '0 1.5rem' }}>
+                  <div style={{ padding: '0 1.5rem', flex: 1 }}>
                     <p style={{
                       fontFamily: 'var(--font-heading)',
                       fontSize: '1.1rem',

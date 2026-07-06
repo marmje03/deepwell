@@ -1,17 +1,19 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useIsMobile } from '../../hooks/useIsMobile'
 import { recipes, type RecipeCategory } from '../../data/recipes'
 
 const categoryOrder: RecipeCategory[] = ['everyday', 'sweet', 'refreshing']
 
 export default function RecipesGallery() {
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
 
   return (
     <main style={{
       backgroundColor: 'var(--color-oat-cream)',
-      padding: '10rem 2rem 6rem',
+      padding: isMobile ? '6rem 1rem 3rem' : '10rem 2rem 6rem',
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <motion.div
@@ -67,8 +69,10 @@ export default function RecipesGallery() {
 
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '2rem',
+                gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+                gap: isMobile ? '1rem' : '2rem',
+                width: '100%',
+                alignItems: 'stretch',
               }}>
                 {categoryRecipes.map((recipe, i) => (
                   <motion.div
@@ -77,14 +81,18 @@ export default function RecipesGallery() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: i * 0.1 }}
                     viewport={{ once: true }}
+                    style={{ height: '100%' }}
                   >
-                    <Link to={`/recipes/${recipe.slug}`} style={{ textDecoration: 'none' }}>
+                    <Link to={`/recipes/${recipe.slug}`} style={{ textDecoration: 'none', height: '100%', display: 'block' }}>
                       <div style={{
                         backgroundColor: 'var(--color-white)',
                         borderRadius: '4px',
                         overflow: 'hidden',
                         cursor: 'pointer',
                         transition: 'transform 0.3s ease',
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
                       }}
                       onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-8px)')}
                       onMouseLeave={e => (e.currentTarget.style.transform = 'translateY(0)')}
@@ -104,7 +112,7 @@ export default function RecipesGallery() {
                             }}
                           />
                         </div>
-                        <div style={{ padding: '1.5rem' }}>
+                        <div style={{ padding: '1.5rem', flex: 1, minHeight: '80px' }}>
                           <p style={{
                             fontFamily: 'var(--font-body)',
                             fontSize: '0.7rem',
@@ -122,6 +130,10 @@ export default function RecipesGallery() {
                             color: 'var(--color-deep-roast)',
                             letterSpacing: '0.03em',
                             lineHeight: 1.4,
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden',
                           }}>
                             {recipe.title}
                           </h3>

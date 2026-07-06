@@ -82,7 +82,7 @@ export default function ProductDetail() {
           <div style={{
             backgroundColor: 'var(--color-white)',
             borderRadius: '4px',
-            padding: '3rem',
+            padding: '0',
             display: 'flex',
             justifyContent: 'center',
           }}>
@@ -91,8 +91,7 @@ export default function ProductDetail() {
               alt={t(`flavours.${product.key}.name`)}
               style={{
                 width: '100%',
-                maxWidth: '280px',
-                height: '360px',
+                height: '100%',
                 objectFit: 'contain',
               }}
             />

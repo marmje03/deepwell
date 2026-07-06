@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useIsMobile } from '../../hooks/useIsMobile'
 
 const steps = [
   { key: 'step1', color: 'rgba(203, 213, 247, 0.8)', label: 'Ice' },
@@ -12,11 +13,12 @@ const steps = [
 export default function BrewGuide() {
   const [activeStep, setActiveStep] = useState(-1)
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
 
   return (
     <section style={{
       backgroundColor: 'var(--color-oat-cream)',
-      padding: '6rem 2rem',
+      padding: isMobile ? '3rem 1rem' : '6rem 2rem',
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <motion.div
@@ -49,8 +51,8 @@ export default function BrewGuide() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '6rem',
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          gap: isMobile ? '3rem' : '6rem',
           alignItems: 'center',
         }}>
           {/* Left: animated glass */}
@@ -197,7 +199,7 @@ export default function BrewGuide() {
                 textAlign: 'center',
                 transition: 'opacity 0.3s ease',
               }}>
-                {activeStep >= 0 ? steps[activeStep].label : t('brewGuide.hoverPrompt', 'Hover a step')}
+                {activeStep >= 0 ? steps[activeStep].label : t('brewGuide.hoverPrompt', isMobile ? 'Tap a step' : 'Hover a step')}
               </p>
             </div>
           </div>

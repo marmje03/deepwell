@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { useIsMobile } from '../../hooks/useIsMobile'
 import lifestyleImg from '../../assets/images/lifestyle.png'
 
 const reasons = [
@@ -10,17 +11,18 @@ const reasons = [
 
 export default function WhyDeepwell() {
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
 
   return (
     <section style={{
       backgroundColor: 'var(--color-cold-blue)',
-      padding: '4rem 2rem',
+      padding: isMobile ? '3rem 1rem' : '4rem 2rem',
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '6rem',
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          gap: isMobile ? '2.5rem' : '6rem',
           alignItems: 'center',
         }}>
           <div>
@@ -103,7 +105,7 @@ export default function WhyDeepwell() {
               src={lifestyleImg}
               alt='Deepwell lifestyle'
               style={{
-                width: '75%',
+                width: isMobile ? '100%' : '75%',
                 height: 'auto',
                 display: 'block',
                 margin: '0 auto',
